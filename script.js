@@ -9,27 +9,27 @@ $(document).ready(function () {
     var companyResults = [];
 
     // these are the placeholders for displaying the query results in HTML (i.e. we need to add ids to the relevant elements)
-    var companyDisplayEl1 = "";
-    var companyDisplayEl2 = "";
-    var companyDisplayEl3 = "";
-    var companyDisplayEl4 = "";
-    var companyDisplayEl5 = "";
+    var companyDisplayEl1 = $("#companyDisplayEl1");
+    var companyDisplayEl2 = $("#companyDisplayEl2");
+    var companyDisplayEl3 = $("#companyDisplayEl3");
+    var companyDisplayEl4 = $("#companyDisplayEl4");
+    var companyDisplayEl5 = $("#companyDisplayEl5");
 
     var companyDisplayElAll = [companyDisplayEl1,companyDisplayEl2,companyDisplayEl3,companyDisplayEl4,companyDisplayEl5];
 
-    var locationDisplayEl1 = "";
-    var locationDisplayEl2 = "";
-    var locationDisplayEl3 = "";
-    var locationDisplayEl4 = "";
-    var locationDisplayEl5 = "";
+    var locationDisplayEl1 = $("#locationDisplayEl1");
+    var locationDisplayEl2 = $("#locationDisplayEl2");
+    var locationDisplayEl3 = $("#locationDisplayEl3");
+    var locationDisplayEl4 = $("#locationDisplayEl4");
+    var locationDisplayEl5 = $("#locationDisplayEl5");
 
     var locationDisplayElAll = [locationDisplayEl1,locationDisplayEl2,locationDisplayEl3,locationDisplayEl4,locationDisplayEl5];
     
-    var titleDisplayEl1 = "";
-    var titleDisplayEl2 = "";
-    var titleDisplayEl3 = "";
-    var titleDisplayEl4 = "";
-    var titleDisplayEl5 = "";
+    var titleDisplayEl1 = $("#titleDisplayEl1");
+    var titleDisplayEl2 = $("#titleDisplayEl2");
+    var titleDisplayEl3 = $("#titleDisplayEl3");
+    var titleDisplayEl4 = $("#titleDisplayEl4");
+    var titleDisplayEl5 = $("#titleDisplayEl5");
 
     var titleDisplayElAll = [titleDisplayEl1,titleDisplayEl2,titleDisplayEl3,titleDisplayEl4,titleDisplayEl5];
 
