@@ -1,10 +1,11 @@
 $(document).ready(function () {
 
     // these are the input fields to search GitHub jobs
-    var userJobDescription = "";
-    var userLocation = "";
-    var userFullTime = "";
-
+    var userJobDescription = $("#describeInput");
+    var userLocation = $("#locationInput");
+    var userFullTime = $(".checkbox:checked").val();
+    var submitButton = $("#searchButton");
+    console.log(userFullTime)
     // this is where we push job search results to
     var companyResults = [];
 
@@ -34,31 +35,51 @@ $(document).ready(function () {
     var titleDisplayElAll = [titleDisplayEl1, titleDisplayEl2, titleDisplayEl3, titleDisplayEl4, titleDisplayEl5];
 
 
+    // Search button click event
+    
+
     // this is a placeholder for testing purposes(to see what we generate with inputs)
-        test();
+    //     test();
+    
+    // console.log (jobDescription,"hello")
+    // function test() {
 
-    function test() {
-        userJobDescription = "javascript";
-        userLocation = "san jose";
-        userFullTime = "yes";
-    }
+    // }
+    // function checkFunction(){
+    //     if (userFullTime.checked == true){
+    //         fullTime = "yes";
+    //         console.log("yes")
+    //     }
+    //     else{
+    //         fullTime= "no";
+    //         console.log("no")
+    //     }
+    // }
 
+    submitButton.click(function(){
+        jobDescription = userJobDescription.val();
+        eLocation = userLocation.val();
+        fullTime = "yes";
+        // checkFunction();
 
-    var queryURL = "https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?description=" + userJobDescription + "&location=" + userLocation + "&full_time=" + userFullTime;
+        jobSearch();
+    })
+
 
     // this is a placeholder for the ajax connection for GitHub jobs (to be moved under submit button on click once html is ready)
-    jobSearch();
+    
     function jobSearch() {
+        var queryURL = "https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?description=" + jobDescription + "&location=" + eLocation + "&full_time=" + fullTime;
 
         $.ajax({
             url: queryURL,
             method: "GET",
 
         }).then(function (response) {
-            console.log("GitHub: " + JSON.stringify(response));
-            console.log("Company: " + response[0].company);
-            console.log("Location: " + response[0].location);
-            console.log("Title: " + response[0].title);
+            // console.log("GitHub: " + JSON.stringify(response));
+            // console.log("Company: " + response[0].company);
+            // console.log("Location: " + response[0].location);
+            // console.log("Title: " + response[0].title);
 
             // pushes first 5 results into var companyResults
             var company = "";
@@ -82,16 +103,17 @@ $(document).ready(function () {
                 how_to_apply = response[i].how_to_apply;
                 company_logo = response[i].company_logo;
                 companyResults.push({ company: company, location: location, title: title, type: type, url: company_url, created: created_at, description: description, how_to_apply: how_to_apply, logo: company_logo });
-                console.log(company)
+                // console.log(company)
                 //Adding to HTML elements to display on screen
-                companyDisplayEl1.html("<h1>"+company+"</h1>")
+                
+                // companyDisplayEl1.html("<h1>"+company+"</h1>")
             }
 
-            console.log(companyResults)
+            // console.log(companyResults)
 
-            console.log(companyResults[0].company);
-            console.log(companyResults[0].location);
-            console.log(companyResults[0].title);
+            // console.log(companyResults[0].company);
+            // console.log(companyResults[0].location);
+            // console.log(companyResults[0].title);
 
             // populates html elements with company, location, and title for first 5 results
             for (var i = 0; i < 5; i++) {
@@ -140,10 +162,10 @@ $(document).ready(function () {
             method: "GET",
 
         }).then(function (response) {
-            console.log("GooglePlaces: " + JSON.stringify(response));
-            console.log("GooglePlaces: " + queryCompanyLookupURL);
-            console.log("Latitude: " + response.candidates[0].geometry.location.lat);
-            console.log("Longitude: " + response.candidates[0].geometry.location.lng);
+            // console.log("GooglePlaces: " + JSON.stringify(response));
+            // console.log("GooglePlaces: " + queryCompanyLookupURL);
+            // console.log("Latitude: " + response.candidates[0].geometry.location.lat);
+            // console.log("Longitude: " + response.candidates[0].geometry.location.lng);
             var lat = response.candidates[0].geometry.location.lat;
             var long = response.candidates[0].geometry.location.lng;
 
@@ -155,7 +177,7 @@ $(document).ready(function () {
                 method: "GET",
 
             }).then(function (response) {
-                console.log("GooglePlacesNearby: " + JSON.stringify(response));
+                // console.log("GooglePlacesNearby: " + JSON.stringify(response));
 
                 var name = "";
                 var rating = "";
@@ -188,7 +210,7 @@ $(document).ready(function () {
                 method: "GET",
 
             }).then(function (response) {
-                console.log("GoogleCoffeeNearby: " + JSON.stringify(response));
+                // console.log("GoogleCoffeeNearby: " + JSON.stringify(response));
 
                 var name = "";
                 var rating = "";
@@ -210,7 +232,7 @@ $(document).ready(function () {
                     newLi.text(name+" | Rating: "+rating+" | No. of ratings: "+user_ratings_total);
                     $("#cafeListEl").append(newLi);
                 }
-                console.log(cafeResults);
+                // console.log(cafeResults);
             })
 
             // this is to get bars nearby
@@ -221,7 +243,7 @@ $(document).ready(function () {
                 method: "GET",
 
             }).then(function (response) {
-                console.log("GoogleBarNearby: " + JSON.stringify(response));
+                // console.log("GoogleBarNearby: " + JSON.stringify(response));
 
                 var name = "";
                 var rating = "";
@@ -243,7 +265,7 @@ $(document).ready(function () {
                     newLi.text(name+" | Rating: "+rating+" | No. of ratings: "+user_ratings_total);
                     $("#barListEl").append(newLi);
                 }
-                console.log(barResults);
+                // console.log(barResults);
             })
 
         })
@@ -278,7 +300,7 @@ $(document).ready(function () {
             method: "GET",
 
         }).then(function (response) {
-            console.log("Place Nearby Check: " + JSON.stringify(response));
+            // console.log("Place Nearby Check: " + JSON.stringify(response));
             // formatted_address = response.candidates[0].formatted_address;
             // name = response.candidates[0].name;
             // opening_hours = response.candidates[0].opening_hours;
