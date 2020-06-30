@@ -55,6 +55,27 @@
   }
   
   
+.switch input:checked ~ .switch-paddle, .switch.primary input:checked ~ .switch-paddle {
+  background: #1779ba;
+}
+
+.switch.secondary input:checked ~ .switch-paddle {
+  background: #767676;
+}
+
+.switch.success input:checked ~ .switch-paddle {
+  background: #3adb76;
+}
+
+.switch.alert input:checked ~ .switch-paddle {
+  background: #cc4b37;
+}
+
+.switch.warning input:checked ~ .switch-paddle {
+  background: #ffae00;
+}
+
+
 .work-feature-block {
     padding: 10px 0;
     border-top: 1px solid #cacaca;

@@ -14,14 +14,27 @@
   </header>
   <div class="grid-x">
     <div class="cell medium-6 large-4">
-        <div class="input-group input-group-rounded" style= "margin: 3%; width: 300px;">
-            <input class="input-group-field" type="search">
-            <div class="input-group-button">
-              <input type="submit" class="button secondary" value="Search">
-            </div>
+        <div class="input-group">
+            <label style= "margin:2%; margin-right:0%;">Description:</label>
+            <input class="input-group-field" type="search" style= "margin:2%;">
+            <label style= "margin:2%; margin-right:0%;">Location:</label>
+            <input class="input-group-field" type="search"style= "margin: 2%;">
           </div>
-          
-          
+        <div>
+          <label style= "float: left;margin: 4%; margin-right:0%;">Full-Time:</label>
+
+          <div class="switch" style= "margin: 2%; float: left;">
+            <input class="switch-input" id="defaultSwitch" type="checkbox" name="defaultSwitch">
+            <label class="switch-paddle" for="defaultSwitch">
+              <span class="show-for-sr">Default Switch</span>
+            </label>
+          </div>
+          <div class="input-group-button" style= "float: right; margin: 2%">
+            <input type="submit" class="button secondary" value="Search">
+          </div>
+        </div>
+
+         <div style= "float: right;"> 
           <div class="card news-card" style= "margin: 3%;">
             <br/>
             <div class="card-section">
@@ -60,18 +73,18 @@
                         <p class="news-card-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae facere, ipsam quae sit, eaque perferendis commodi!...</p>
                       </article>
                     </div>
-
+            </div>
           </div>
           
           
     </div>
     <div class="cell medium-6 large-8">
-        <div class="work-feature-block row">
+        <div class="work-feature-block row" style= "margin: 5%;">
             <div class="columns medium-7">
               <!-- <img class="work-feature-block-image" src="https://placehold.it/600x400"/> -->
             </div>
-            <div class="columns medium-5">
-              <h2 class="work-feature-block-header">Job Description</h2>
+            <div class="columns medium-5" id= "jobDescriptionEl">
+              <h2 class="work-feature-block-header" id>Job Description</h2>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sodales diam ac hendrerit aliquet. Phasellus pretium libero vel molestie maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam quis est quam. Aenean blandit a urna laoreet tincidunt.</p>
               <h2>Project Details</h2>
               <ul>
@@ -82,11 +95,11 @@
               </ul>
             </div>
           </div>
-          <div class="work-feature-block row">
+          <div class="work-feature-block row" style= "margin: 5%;">
             <div class="columns medium-7">
               <!-- <img class="work-feature-block-image" src="https://placehold.it/600x400"/> -->
             </div>
-            <div class="columns medium-5">
+            <div class="columns medium-5" id= "placesEl">
               <h2 class="work-feature-block-header">Places to Explore Nearby</h2>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sodales diam ac hendrerit aliquet. Phasellus pretium libero vel molestie maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam quis est quam. Aenean blandit a urna laoreet tincidunt.</p>
               <h2>Project Details</h2>
