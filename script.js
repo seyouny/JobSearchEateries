@@ -126,12 +126,14 @@ $(document).ready(function () {
 
 
     var googleKey = "AIzaSyB-ehBeU-4Z5TYNJpC70UeoXVspIgUkotw";
-
-
+    // placesNearby(); //to be removed - for testing only
+    // function placesNearby() {
     // this is to get the location of the job
     var queryCompanyLookupURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=" + gitJobInput + "&inputtype=textquery&fields=photos,formatted_address,name,rating,opening_hours,geometry&key=" + googleKey
 
-    function placesNearby() {
+
+
+
 
         $.ajax({
             url: queryCompanyLookupURL,
@@ -170,6 +172,10 @@ $(document).ready(function () {
                     price_level = response.results[i].price_level;
                     vicinity = response.results[i].vicinity;
                     restaurantResults.push({ name: name, rating: rating, total_ratings: user_ratings_total, id: place_id, price: price_level, vicinity: vicinity });
+
+                    var newLi = $("<li>");
+                    newLi.text(name+" | Rating: "+rating+" | No. of ratings: "+user_ratings_total);
+                    $("#restListEl").append(newLi);
                 }
                 console.log(restaurantResults);
             })
@@ -199,6 +205,10 @@ $(document).ready(function () {
                     price_level = response.results[i].price_level;
                     vicinity = response.results[i].vicinity;
                     cafeResults.push({ name: name, rating: rating, total_ratings: user_ratings_total, id: place_id, price: price_level, vicinity: vicinity  });
+                
+                    var newLi = $("<li>");
+                    newLi.text(name+" | Rating: "+rating+" | No. of ratings: "+user_ratings_total);
+                    $("#cafeListEl").append(newLi);
                 }
                 console.log(cafeResults);
             })
@@ -228,22 +238,26 @@ $(document).ready(function () {
                     price_level = response.results[i].price_level;
                     vicinity = response.results[i].vicinity;
                     barResults.push({ name: name, rating: rating, total_ratings: user_ratings_total, id: place_id, price: price_level, vicinity: vicinity  });
+                
+                    var newLi = $("<li>");
+                    newLi.text(name+" | Rating: "+rating+" | No. of ratings: "+user_ratings_total);
+                    $("#barListEl").append(newLi);
                 }
                 console.log(barResults);
             })
 
         })
-    }
+    // }
 
     var placeName = "";
     var placeInfo = [];
 
     // this is a placeholder for testing purposes (to see what we generate with inputs)
-    test3();
+    // test3();
 
-    function test3() {
-        placeName = "Free House  2700 Bancroft Way, Berkeley";
-    }
+    // function test3() {
+    //     placeName = "Free House  2700 Bancroft Way, Berkeley";
+    // }
 
     // this is to get additional information of places nearby
     var queryPlaceLookupURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=" + placeName + "&inputtype=textquery&fields=photos,formatted_address,name,rating,opening_hours,geometry&key="+ googleKey;
@@ -255,7 +269,7 @@ $(document).ready(function () {
     var photos = "";
     
 
-    placesNearby(); //remove - for testing only
+    // placesNearby(); //remove - for testing only
 
     function placesNearby() {
 
@@ -265,11 +279,11 @@ $(document).ready(function () {
 
         }).then(function (response) {
             console.log("Place Nearby Check: " + JSON.stringify(response));
-            formatted_address = response.candidates[0].formatted_address;
-            name = response.candidates[0].name;
-            opening_hours = response.candidates[0].opening_hours;
-            photos = response.candidates[0].photos[0].html_attributions;
-            placeInfo.push({address: formatted_address, name: name, open: opening_hours, photos: photos})
+            // formatted_address = response.candidates[0].formatted_address;
+            // name = response.candidates[0].name;
+            // opening_hours = response.candidates[0].opening_hours;
+            // photos = response.candidates[0].photos[0].html_attributions;
+            // placeInfo.push({address: formatted_address, name: name, open: opening_hours, photos: photos})
 
             console.log(placeInfo);
         }
