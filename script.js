@@ -47,7 +47,7 @@ $(document).ready(function () {
     var queryURL = "https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?description=" + userJobDescription + "&location=" + userLocation + "&full_time=" + userFullTime;
 
     // this is a placeholder for the ajax connection for GitHub jobs (to be moved under submit button on click once html is ready)
-
+    jobSearch();
     function jobSearch() {
 
         $.ajax({
@@ -82,6 +82,9 @@ $(document).ready(function () {
                 how_to_apply = response[i].how_to_apply;
                 company_logo = response[i].company_logo;
                 companyResults.push({ company: company, location: location, title: title, type: type, url: company_url, created: created_at, description: description, how_to_apply: how_to_apply, logo: company_logo });
+                console.log(company)
+                //Adding to HTML elements to display on screen
+                companyDisplayEl1.html("<h1>"+company+"</h1>")
             }
 
             console.log(companyResults)
