@@ -3,9 +3,8 @@ $(document).ready(function () {
     // these are the input fields to search GitHub jobs
     var userJobDescription = $("#describeInput");
     var userLocation = $("#locationInput");
-    var userFullTime = $(".checkbox:checked").val();
     var submitButton = $("#searchButton");
-    console.log(userFullTime)
+    
     // this is where we push job search results to
     var companyResults = [];
 
@@ -57,14 +56,22 @@ $(document).ready(function () {
     // }
 
     submitButton.click(function(){
+        var userFullTime = $("#myCheck").is(":checked");
+    
         jobDescription = userJobDescription.val();
         eLocation = userLocation.val();
-        fullTime = "yes";
+        if (userFullTime === true){
+            fullTime = "yes";
+        }
+        else{
+            fullTime = "no";
+        }
+        // console.log(userFullTime.checked)
+        console.log(userFullTime)
         // checkFunction();
 
         jobSearch();
     })
-
 
     // this is a placeholder for the ajax connection for GitHub jobs (to be moved under submit button on click once html is ready)
     
@@ -109,11 +116,11 @@ $(document).ready(function () {
                 // companyDisplayEl1.html("<h1>"+company+"</h1>")
             }
 
-            // console.log(companyResults)
+            console.log(companyResults)
 
-            // console.log(companyResults[0].company);
-            // console.log(companyResults[0].location);
-            // console.log(companyResults[0].title);
+            console.log(companyResults[0].company);
+            console.log(companyResults[0].location);
+            console.log(companyResults[0].title);
 
             // populates html elements with company, location, and title for first 5 results
             for (var i = 0; i < 5; i++) {
@@ -121,7 +128,12 @@ $(document).ready(function () {
                 locationDisplayElAll[i].text(companyResults[i].location);
                 titleDisplayElAll[i].text(companyResults[i].title);
             }
-
+            // ALLOWED EACH JOB TO HAVE A CLICK FUNCTION
+            for (i in companyDisplayElAll){
+                companyDisplayElAll[i].click(function(){
+                    alert("clicked") 
+                })
+            }
         })
 
     }
@@ -152,9 +164,6 @@ $(document).ready(function () {
     // function placesNearby() {
     // this is to get the location of the job
     var queryCompanyLookupURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=" + gitJobInput + "&inputtype=textquery&fields=photos,formatted_address,name,rating,opening_hours,geometry&key=" + googleKey
-
-
-
 
 
         $.ajax({
