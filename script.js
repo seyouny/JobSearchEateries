@@ -151,6 +151,7 @@ $(document).ready(function () {
 
     }
 
+
     // start of Google Places
 
     // this variable should be equal to: companyResults[0].company+" "+companyResults[0].location;
@@ -334,4 +335,15 @@ $(document).ready(function () {
         )
     }
 })
+
+  }
+});
+
+var cardSection = document.getElementsByClassName("card-section");
+for (let i = 0; i < cardSection.length; i++) {
+  cardSection[i].onclick = function () {
+    toastr.success("Great choice!");
+  };
+}
+
 
