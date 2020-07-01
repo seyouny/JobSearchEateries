@@ -1,155 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css"
-    integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel= "stylesheet" href= "style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css" integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
 </head>
-
 <body>
 
-  <header class="subnav-hero-section">
+    <header class="subnav-hero-section">
     <h1 class="subnav-hero-headline">Foundation <small>by ZURB</small></h1>
   </header>
   <div class="grid-x">
-    <div class="cell medium-6 large-4 border-right">
-      <div class="input-group">
-        <div class="custom-group">
-          <label>Description:</label>
-          <input class="input-group-field" type="search">
-        </div>
-        <div class="custom-group ml-10">
-          <label>Location:</label>
-          <input class="input-group-field" type="search">
-        </div>
+    <div class="cell medium-6 large-4">
 
-      </div>
-      <div class="flex-input">
-        <div class="flex">
-          <label class="mr-10">Full-Time:</label>
-
-          <div class="switch mb-0">
-            <input class="switch-input" id="defaultSwitch" type="checkbox" name="defaultSwitch">
-            <label class="switch-paddle" for="defaultSwitch">
-              <span class="show-for-sr">Default Switch</span>
-            </label>
+        <div class="input-group">
+          <!--JOB DESCRIPTION INPUT: ID= #describeInput-->
+            <label style= "margin:2%; margin-right:0%;">Description:</label>
+            <input class="input-group-field" type="search" id= describeInput style= "margin:2%;">
+          <!--LOCATION INPUT: ID= #locationInput-->
+            <label style= "margin:2%; margin-right:0%;">Location:</label>
+            <input class="input-group-field" type="search" id= locationInput style= "margin: 2%;">
           </div>
-        </div>
         <div>
-          <button class="button mb-0" type="submit">Search</button>
-        </div>
-      </div>
+          <!--FULL-TIME CHECK BOX-->
+          <div  style= "margin: 2%; float: left;">
+              <label for="vehicle1"> Full Time: </label>
+              <input class = "checkbox" type="checkbox" id="myCheck">
+          </div>
 
-      <div>
-        <div class="card news-card">
-          <div class="card-section">
-            <div class="news-card-date" id="locationDisplayEl1">locationDisplayEl1</div>
-            <article class="news-card-article"></article>
-            <h4 class="news-card-title" id="companyDisplayEl1"><a href="#">companyDisplayEl1</a></h4>
-            <p class="news-card-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae
-              facere, ipsam quae sit, eaque perferendis commodi!...</p>
-            </article>
 
-          </div>
-          <div class="card-section">
-            <div class="news-card-date" id="locationDisplayEl2">locationDisplayEl2</div>
-            <article class="news-card-article"></article>
-            <h4 class="news-card-title" id="companyDisplayEl2"><a href="#">companyDisplayEl2</a></h4>
-            <p class="news-card-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae
-              facere, ipsam quae sit, eaque perferendis commodi!...</p>
-            </article>
-          </div>
-          <div class="card-section">
-            <div class="news-card-date" id="locationDisplayEl3">locationDisplayEl3</div>
-            <article class="news-card-article"></article>
-            <h4 class="news-card-title" id="companyDisplayEl3"><a href="#">companyDisplayEl3</a></h4>
-            <p class="news-card-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae
-              facere, ipsam quae sit, eaque perferendis commodi!...</p>
-            </article>
-          </div>
-          <div class="card-section">
-            <div class="news-card-date" id="locationDisplayEl4">locationDisplayEl4</div>
-            <article class="news-card-article"></article>
-            <h4 class="news-card-title" id="companyDisplayEl4"><a href="#">companyDisplayEl4</a></h4>
-            <p class="news-card-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae
-              facere, ipsam quae sit, eaque perferendis commodi!...</p>
-            </article>
-          </div>
-          <div class="card-section">
-            <div class="news-card-date" id="locationDisplayEl5">locationDisplayEl5</div>
-            <article class="news-card-article"></article>
-            <h4 class="news-card-title" id="companyDisplayEl5"><a href="#">companyDisplayEl5</a></h4>
-            <p class="news-card-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae
-              facere, ipsam quae sit, eaque perferendis commodi!...</p>
-            </article>
+          <!--SUBMIT BUTTON ID=#searchButton -->
+          <div class="input-group-button" id="searchButton" style= "float: right; margin: 2%">
+            <input type="submit" class="button secondary" value="Search" id= "searchButton">
           </div>
         </div>
-      </div>
 
-
+         <div style= "float: right;"> 
+          <div class="card news-card" style= "margin: 3%;">
+            <br/>
+            <div class="card-section">
+              <div class="news-card-date" id="locationDisplayEl1">locationDisplayEl1</div>
+              <article class="news-card-article"></article>
+                <h4 class="news-card-title" id= "companyDisplayEl1"><a href="#">companyDisplayEl1</a></h4>
+                <p class="news-card-description" id= "titleDisplayEl1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae facere, ipsam quae sit, eaque perferendis commodi!...</p>
+              </article>
+             
+            </div>
+            <div class="card-section">
+              <div class="news-card-date" id="locationDisplayEl2">locationDisplayEl2</div>
+                <article class="news-card-article"></article>
+                  <h4 class="news-card-title" id= "companyDisplayEl2"><a href="#">companyDisplayEl2</a></h4>
+                  <p class="news-card-description" id= "titleDisplayEl2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae facere, ipsam quae sit, eaque perferendis commodi!...</p>
+                </article>
+              </div>
+              <div class="card-section">
+                <div class="news-card-date" id="locationDisplayEl3">locationDisplayEl3</div>
+                  <article class="news-card-article"></article>
+                    <h4 class="news-card-title" id= "companyDisplayEl3"><a href="#">companyDisplayEl3</a></h4>
+                    <p class="news-card-description"id= "titleDisplayEl3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae facere, ipsam quae sit, eaque perferendis commodi!...</p>
+                  </article>
+                </div>
+                <div class="card-section">
+                  <div class="news-card-date" id="locationDisplayEl4">locationDisplayEl4</div>
+                    <article class="news-card-article"></article>
+                      <h4 class="news-card-title" id= "companyDisplayEl4"><a href="#">companyDisplayEl4</a></h4>
+                      <p class="news-card-description"id= "titleDisplayEl4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae facere, ipsam quae sit, eaque perferendis commodi!...</p>
+                    </article>
+                  </div>
+                  <div class="card-section">
+                    <div class="news-card-date" id="locationDisplayEl5">locationDisplayEl5</div>
+                      <article class="news-card-article"></article>
+                        <h4 class="news-card-title" id= "companyDisplayEl5"><a href="#">companyDisplayEl5</a></h4>
+                        <p class="news-card-description" id= "titleDisplayEl5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae facere, ipsam quae sit, eaque perferendis commodi!...</p>
+                      </article>
+                    </div>
+            </div>
+          </div>
+          
+          
     </div>
-    <div class="cell medium-6 large-8 right-column">
-      <div class="row box p-40">
-        <div class="columns medium-7">
-          <!-- <img class="work-feature-block-image" src="https://placehold.it/600x400"/> -->
-        </div>
-        <div class="columns medium-5" id="jobDescriptionEl">
-          <h2 class="work-feature-block-header">Job Description</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sodales diam ac hendrerit aliquet. Phasellus
-            pretium libero vel molestie maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam quis est
-            quam. Aenean blandit a urna laoreet tincidunt.</p>
-          <h2>Project Details</h2>
-          <ul>
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-            <li>Item 4</li>
-          </ul>
-        </div>
-      </div>
-      <div class="work-feature-block row p-40">
-        <div class="columns medium-7">
-          <!-- <img class="work-feature-block-image" src="https://placehold.it/600x400"/> -->
-        </div>
+    <div class="cell medium-6 large-8">
+        <div class="work-feature-block row" style= "margin: 5%;">
+            <div class="columns medium-7">
+              <!-- <img class="work-feature-block-image" src="https://placehold.it/600x400"/> -->
+            </div>
+            <div class="columns medium-5" id="jobDescriptionEl">
+              <h2 class="work-feature-block-header">Job Description</h2>
+            </div>
+          </div>
+          <div class="work-feature-block row" style= "margin: 5%;">
+            <div class="columns medium-7">
+              <!-- <img class="work-feature-block-image" src="https://placehold.it/600x400"/> -->
+            </div>
 
-        <div class="columns medium-5" id="placesEl">
+            <div class="columns medium-5" id= "placesEl">
 
-          <h2 class="work-feature-block-header">Places to Explore Nearby</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sodales diam ac hendrerit aliquet. Phasellus
-            pretium libero vel molestie maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam quis est
-            quam. Aenean blandit a urna laoreet tincidunt.</p>
-          <h2>Restaurants</h2>
-          <ul id="restListEl">
+              <h2 class="work-feature-block-header">Places to Explore Nearby</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sodales diam ac hendrerit aliquet. Phasellus pretium libero vel molestie maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam quis est quam. Aenean blandit a urna laoreet tincidunt.</p>
+              <h2>Restaurants</h2>
+              <ul id="restListEl">
 
-          </ul>
-        </div>
-        <div class="columns medium-5" id="placesCafeEl">
-          <h2>Cafes</h2>
-          <ul id="cafeListEl">
+              </ul>
+            </div>
+            <div class="columns medium-5" id="placesCafeEl">
+              <h2>Cafes</h2>
+              <ul id="cafeListEl">
 
-          </ul>
-        </div>
-        <div class="columns medium-5" id="placesBarEl">
-          <h2>Bars</h2>
-          <ul id="barListEl">
+              </ul>
+            </div>
+            <div class="columns medium-5" id="placesBarEl">
+              <h2>Bars</h2>
+              <ul id="barListEl">
 
-          </ul>
-        </div>
-      </div>
+              </ul>
+            </div>
+          </div>
     </div>
   </div>
-
-
-
+ 
+  
+  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
   <script src="script.js"></script>
 
 </body>
-
 </html>
