@@ -117,13 +117,13 @@
   font-weight: 400;
   margin: 25px 0 !important;
   border-radius: 0.125rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  box-shadow: 1px 1px 5px 3px #1779ba5e !important;
 }
 
 .news-card .card-section {
   background-color: inherit;
   cursor: pointer;
-  transition: .8s;
+  transition: 0.8s;
 }
 
 .news-card .card-section:hover {
@@ -223,6 +223,29 @@
 
 .custom-group label {
   margin-right: 10px;
+}
+
+.custom-group input {
+  display: block;
+  height: calc(2.25rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.custom-group input:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
 
 .p-40 {
