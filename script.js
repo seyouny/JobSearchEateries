@@ -1,383 +1,493 @@
 $(document).ready(function () {
+  // these are the input fields to search GitHub jobs
+  var userJobDescription = $("#describeInput");
+  var userLocation = $("#locationInput");
+  var submitButton = $("#searchButton");
 
-    // these are the input fields to search GitHub jobs
-    var userJobDescription = $("#describeInput");
-    var userLocation = $("#locationInput");
-    var submitButton = $("#searchButton");
+  // this is where we push job search results to
+  var companyResults = [];
 
-    // this is where we push job search results to
-    var companyResults = [];
+  // these are the placeholders for displaying the query results in HTML (i.e. we need to add ids to the relevant elements)
+  var companyDisplayEl1 = $("#companyDisplayEl1");
+  var companyDisplayEl2 = $("#companyDisplayEl2");
+  var companyDisplayEl3 = $("#companyDisplayEl3");
+  var companyDisplayEl4 = $("#companyDisplayEl4");
+  var companyDisplayEl5 = $("#companyDisplayEl5");
 
-    // these are the placeholders for displaying the query results in HTML (i.e. we need to add ids to the relevant elements)
-    var companyDisplayEl1 = $("#companyDisplayEl1");
-    var companyDisplayEl2 = $("#companyDisplayEl2");
-    var companyDisplayEl3 = $("#companyDisplayEl3");
-    var companyDisplayEl4 = $("#companyDisplayEl4");
-    var companyDisplayEl5 = $("#companyDisplayEl5");
+  var companyDisplayElAll = [
+    companyDisplayEl1,
+    companyDisplayEl2,
+    companyDisplayEl3,
+    companyDisplayEl4,
+    companyDisplayEl5,
+  ];
 
-    var companyDisplayElAll = [companyDisplayEl1, companyDisplayEl2, companyDisplayEl3, companyDisplayEl4, companyDisplayEl5];
+  var locationDisplayEl1 = $("#locationDisplayEl1");
+  var locationDisplayEl2 = $("#locationDisplayEl2");
+  var locationDisplayEl3 = $("#locationDisplayEl3");
+  var locationDisplayEl4 = $("#locationDisplayEl4");
+  var locationDisplayEl5 = $("#locationDisplayEl5");
 
-    var locationDisplayEl1 = $("#locationDisplayEl1");
-    var locationDisplayEl2 = $("#locationDisplayEl2");
-    var locationDisplayEl3 = $("#locationDisplayEl3");
-    var locationDisplayEl4 = $("#locationDisplayEl4");
-    var locationDisplayEl5 = $("#locationDisplayEl5");
+  var locationDisplayElAll = [
+    locationDisplayEl1,
+    locationDisplayEl2,
+    locationDisplayEl3,
+    locationDisplayEl4,
+    locationDisplayEl5,
+  ];
 
-    var locationDisplayElAll = [locationDisplayEl1, locationDisplayEl2, locationDisplayEl3, locationDisplayEl4, locationDisplayEl5];
+  var titleDisplayEl1 = $("#titleDisplayEl1");
+  var titleDisplayEl2 = $("#titleDisplayEl2");
+  var titleDisplayEl3 = $("#titleDisplayEl3");
+  var titleDisplayEl4 = $("#titleDisplayEl4");
+  var titleDisplayEl5 = $("#titleDisplayEl5");
 
-    var titleDisplayEl1 = $("#titleDisplayEl1");
-    var titleDisplayEl2 = $("#titleDisplayEl2");
-    var titleDisplayEl3 = $("#titleDisplayEl3");
-    var titleDisplayEl4 = $("#titleDisplayEl4");
-    var titleDisplayEl5 = $("#titleDisplayEl5");
+  var titleDisplayElAll = [
+    titleDisplayEl1,
+    titleDisplayEl2,
+    titleDisplayEl3,
+    titleDisplayEl4,
+    titleDisplayEl5,
+  ];
 
-    var titleDisplayElAll = [titleDisplayEl1, titleDisplayEl2, titleDisplayEl3, titleDisplayEl4, titleDisplayEl5];
+  var jobDisplayEl1 = $("#jobDisplayEl1");
+  var jobDisplayEl2 = $("#jobDisplayEl2");
+  var jobDisplayEl3 = $("#jobDisplayEl3");
+  var jobDisplayEl4 = $("#jobDisplayEl4");
+  var jobDisplayEl5 = $("#jobDisplayEl5");
+  var jobDisplayElAll = [
+    jobDisplayEl1,
+    jobDisplayEl2,
+    jobDisplayEl3,
+    jobDisplayEl4,
+    jobDisplayEl5,
+  ];
+  // Search button click event
 
-    var jobDisplayEl1 = $("#jobDisplayEl1");
-    var jobDisplayEl2 = $("#jobDisplayEl2");
-    var jobDisplayEl3 = $("#jobDisplayEl3");
-    var jobDisplayEl4 = $("#jobDisplayEl4");
-    var jobDisplayEl5 = $("#jobDisplayEl5");
-    var jobDisplayElAll = [jobDisplayEl1, jobDisplayEl2, jobDisplayEl3, jobDisplayEl4, jobDisplayEl5];
-    // Search button click event
+  // this is a placeholder for testing purposes(to see what we generate with inputs)
+  //     test();
 
+  // console.log (jobDescription,"hello")
+  // function test() {
 
-    // this is a placeholder for testing purposes(to see what we generate with inputs)
-    //     test();
+  // }
+  // function checkFunction(){
+  //     if (userFullTime.checked == true){
+  //         fullTime = "yes";
+  //         console.log("yes")
+  //     }
+  //     else{
+  //         fullTime= "no";
+  //         console.log("no")
+  //     }
+  // }
 
-    // console.log (jobDescription,"hello")
-    // function test() {
+  submitButton.click(function () {
+    var userFullTime = $("#myCheck").is(":checked");
 
-    // }
-    // function checkFunction(){
-    //     if (userFullTime.checked == true){
-    //         fullTime = "yes";
-    //         console.log("yes")
-    //     }
-    //     else{
-    //         fullTime= "no";
-    //         console.log("no")
-    //     }
-    // }
-
-    submitButton.click(function () {
-        var userFullTime = $("#myCheck").is(":checked");
-
-        jobDescription = userJobDescription.val();
-        eLocation = userLocation.val();
-        if (userFullTime === true) {
-            fullTime = "yes";
-        }
-        else {
-            fullTime = "no";
-        }
-        // console.log(userFullTime.checked)
-        console.log(userFullTime)
-        // checkFunction();
-
-        jobSearch();
-    })
-
-    // this is a placeholder for the ajax connection for GitHub jobs (to be moved under submit button on click once html is ready)
-
-    function jobSearch() {
-        var queryURL = "https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?description=" + jobDescription + "&location=" + eLocation + "&full_time=" + fullTime;
-
-        $.ajax({
-            url: queryURL,
-            method: "GET",
-
-        }).then(function (response) {
-            // console.log("GitHub: " + JSON.stringify(response));
-            // console.log("Company: " + response[0].company);
-            // console.log("Location: " + response[0].location);
-            // console.log("Title: " + response[0].title);
-
-            // pushes first 5 results into var companyResults
-            var company = "";
-            var location = "";
-            var title = "";
-            var type = "";
-            var company_url = "";
-            var created_at = "";
-            var description = "";
-            var how_to_apply = "";
-            var company_logo = "";
-
-            for (var i = 0; i < 5; i++) {
-                company = response[i].company;
-                location = response[i].location;
-                title = response[i].title;
-                type = response[i].type;
-                company_url = response[i].company_url;
-                created_at = response[i].created_at;
-                description = response[i].description;
-                how_to_apply = response[i].how_to_apply;
-                company_logo = response[i].company_logo;
-                companyResults.push({ company: company, location: location, title: title, type: type, url: company_url, created: created_at, description: description, how_to_apply: how_to_apply, logo: company_logo });
-                // console.log(company)
-                //Adding to HTML elements to display on screen
-
-                // companyDisplayEl1.html("<h1>"+company+"</h1>")
-            }
-
-            console.log(companyResults)
-
-            console.log(companyResults[0].company);
-            console.log(companyResults[0].location);
-            console.log(companyResults[0].title);
-
-            // populates html elements with company, location, and title for first 5 results
-            for (var i = 0; i < 5; i++) {
-                companyDisplayElAll[i].text(companyResults[i].company);
-                locationDisplayElAll[i].text(companyResults[i].location);
-                titleDisplayElAll[i].text(companyResults[i].title);
-            }
-            // ALLOWED EACH JOB TO HAVE A CLICK FUNCTION
-
-            companyDisplayEl1.click(function () {
-                alert("clicked")
-                console.log(companyResults.company, "hey")
-                var jobDescriptionDisplay = $("#jobDescriptionEl");
-                jobDescriptionDisplay.html("")
-                jobDescriptionDisplay.append("<h1>" + companyResults[i].company + "</h1>, " + "<h2>" + companyResults[i].location + "</h2>");
-                jobDescriptionDisplay.append("<h2>" + companyResults[i].title + "</h2>");
-
-                jobDescriptionDisplay.append("<p>" + companyResults[i].description + "</p>");
-            })
-
-
-        })
-
+    jobDescription = userJobDescription.val();
+    eLocation = userLocation.val();
+    if (userFullTime === true) {
+      fullTime = "yes";
+    } else {
+      fullTime = "no";
     }
+    // console.log(userFullTime.checked)
+    console.log(userFullTime);
+    // checkFunction();
 
+    jobSearch();
+  });
 
-    // start of Google Places
+  // this is a placeholder for the ajax connection for GitHub jobs (to be moved under submit button on click once html is ready)
 
-    // this variable should be equal to: companyResults[0].company+" "+companyResults[0].location;
-    var gitJobInput = "";
-
-    var restaurantResults = [];
-    var cafeResults = [];
-    var barResults = [];
-
-    // this is a placeholder for testing purposes (to see what we generate with inputs)
-    test2();
-
-    function test2() {
-        gitJobInput = "Lawrence Berkeley National Laboratory  Berkeley";
-    }
-
-    // this is a placeholder for the ajax connection for Google Places (to be moved under on click once html is ready)
-
-
-
-
-    var googleKey = "AIzaSyB-ehBeU-4Z5TYNJpC70UeoXVspIgUkotw";
-    // placesNearby(); //to be removed - for testing only
-    // function placesNearby() {
-    // this is to get the location of the job
-    var queryCompanyLookupURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=" + gitJobInput + "&inputtype=textquery&fields=photos,formatted_address,name,rating,opening_hours,geometry&key=" + googleKey
+  function jobSearch() {
+    var queryURL =
+      "https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?description=" +
+      jobDescription +
+      "&location=" +
+      eLocation +
+      "&full_time=" +
+      fullTime;
 
     $.ajax({
-        url: queryCompanyLookupURL,
-        method: "GET",
-
+      url: queryURL,
+      method: "GET",
     }).then(function (response) {
-        console.log("GooglePlaces: " + JSON.stringify(response));
-        console.log("GooglePlaces: " + queryCompanyLookupURL);
-        console.log("Latitude: " + response.candidates[0].geometry.location.lat);
-        console.log("Longitude: " + response.candidates[0].geometry.location.lng);
-        var lat = response.candidates[0].geometry.location.lat;
-        var long = response.candidates[0].geometry.location.lng;
+      // console.log("GitHub: " + JSON.stringify(response));
+      // console.log("Company: " + response[0].company);
+      // console.log("Location: " + response[0].location);
+      // console.log("Title: " + response[0].title);
 
-        // this is to get restaurants nearby
-        var queryNearbyLookupURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + lat + "," + long + "&radius=1500&type=restaurant&key=" + googleKey;
+      // pushes first 5 results into var companyResults
+      var company = "";
+      var location = "";
+      var title = "";
+      var type = "";
+      var company_url = "";
+      var created_at = "";
+      var description = "";
+      var how_to_apply = "";
+      var company_logo = "";
 
-        $.ajax({
-            url: queryNearbyLookupURL,
-            method: "GET",
+      for (var i = 0; i < 5; i++) {
+        company = response[i].company;
+        location = response[i].location;
+        title = response[i].title;
+        type = response[i].type;
+        company_url = response[i].company_url;
+        created_at = response[i].created_at;
+        description = response[i].description;
+        how_to_apply = response[i].how_to_apply;
+        company_logo = response[i].company_logo;
+        companyResults.push({
+          company: company,
+          location: location,
+          title: title,
+          type: type,
+          url: company_url,
+          created: created_at,
+          description: description,
+          how_to_apply: how_to_apply,
+          logo: company_logo,
+        });
+        // console.log(company)
+        //Adding to HTML elements to display on screen
 
-        }).then(function (response) {
-            console.log("GooglePlacesNearby: " + JSON.stringify(response));
+        // companyDisplayEl1.html("<h1>"+company+"</h1>")
+      }
 
-            var name = "";
-            var rating = "";
-            var user_ratings_total = "";
-            var place_id = ""; //need this to get detailed info including opening hours
-            var price_level = "";
-            var vicinity = "";
+      console.log(companyResults);
 
-            for (var i = 0; i < 5; i++) {
-                name = response.results[i].name;
-                rating = response.results[i].rating;
-                user_ratings_total = response.results[i].user_ratings_total;
-                place_id = response.results[i].place_id;
-                price_level = response.results[i].price_level;
-                vicinity = response.results[i].vicinity;
-                restaurantResults.push({ name: name, rating: rating, total_ratings: user_ratings_total, id: place_id, price: price_level, vicinity: vicinity });
+      console.log(companyResults[0].company);
+      console.log(companyResults[0].location);
+      console.log(companyResults[0].title);
 
-                var newLi = $("<li>");
-                newLi.text(name + " | Rating: " + rating + " | No. of ratings: " + user_ratings_total);
-                newLi.attr("data-value", name + " " + vicinity)
-                newLi.addClass("placeNearby");
-                $("#restListEl").append(newLi);
-            }
-            console.log(restaurantResults);
-        })
+      // populates html elements with company, location, and title for first 5 results
+      for (var i = 0; i < 5; i++) {
+        companyDisplayElAll[i].text(companyResults[i].company);
+        locationDisplayElAll[i].text(companyResults[i].location);
+        titleDisplayElAll[i].text(companyResults[i].title);
+      }
+      // ALLOWED EACH JOB TO HAVE A CLICK FUNCTION
 
-        // this is to get cafes nearby
-        var queryNearbyCoffeeLookupURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + lat + "," + long + "&radius=1500&type=cafe&key=" + googleKey;
+      companyDisplayEl1.click(function () {
+        alert("clicked");
+        console.log(companyResults.company, "hey");
+        var jobDescriptionDisplay = $("#jobDescriptionEl");
+        jobDescriptionDisplay.html("");
+        jobDescriptionDisplay.append(
+          "<h1>" +
+            companyResults[i].company +
+            "</h1>, " +
+            "<h2>" +
+            companyResults[i].location +
+            "</h2>"
+        );
+        jobDescriptionDisplay.append(
+          "<h2>" + companyResults[i].title + "</h2>"
+        );
 
-        $.ajax({
-            url: queryNearbyCoffeeLookupURL,
-            method: "GET",
+        jobDescriptionDisplay.append(
+          "<p>" + companyResults[i].description + "</p>"
+        );
+      });
+    });
+  }
 
-        }).then(function (response) {
-            console.log("GoogleCoffeeNearby: " + JSON.stringify(response));
+  // start of Google Places
 
-            var name = "";
-            var rating = "";
-            var user_ratings_total = "";
-            var place_id = ""; //need this to get detailed info including opening hours
-            var price_level = "";
-            var vicinity = "";
+  // this variable should be equal to: companyResults[0].company+" "+companyResults[0].location;
+  var gitJobInput = "";
 
-            for (var i = 0; i < 5; i++) {
-                name = response.results[i].name;
-                rating = response.results[i].rating;
-                user_ratings_total = response.results[i].user_ratings_total;
-                place_id = response.results[i].place_id;
-                price_level = response.results[i].price_level;
-                vicinity = response.results[i].vicinity;
-                cafeResults.push({ name: name, rating: rating, total_ratings: user_ratings_total, id: place_id, price: price_level, vicinity: vicinity });
+  var restaurantResults = [];
+  var cafeResults = [];
+  var barResults = [];
 
-                var newLi = $("<li>");
-                newLi.text(name + " | Rating: " + rating + " | No. of ratings: " + user_ratings_total);
-                newLi.attr("data-value", name + " " + vicinity)
-                newLi.addClass("placeNearby");
-                $("#cafeListEl").append(newLi);
-            }
-            console.log(cafeResults);
-        })
+  // this is a placeholder for testing purposes (to see what we generate with inputs)
+  test2();
 
-        // this is to get bars nearby
-        var queryNearbyCoffeeLookupURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + lat + "," + long + "&radius=1500&type=bar&key=" + googleKey;
+  function test2() {
+    gitJobInput = "Lawrence Berkeley National Laboratory  Berkeley";
+  }
 
-        $.ajax({
-            url: queryNearbyCoffeeLookupURL,
-            method: "GET",
+  // this is a placeholder for the ajax connection for Google Places (to be moved under on click once html is ready)
 
-        }).then(function (response) {
-            console.log("GoogleBarNearby: " + JSON.stringify(response));
+  var googleKey = "AIzaSyB-ehBeU-4Z5TYNJpC70UeoXVspIgUkotw";
+  // placesNearby(); //to be removed - for testing only
+  // function placesNearby() {
+  // this is to get the location of the job
+  var queryCompanyLookupURL =
+    "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=" +
+    gitJobInput +
+    "&inputtype=textquery&fields=photos,formatted_address,name,rating,opening_hours,geometry&key=" +
+    googleKey;
 
-            var name = "";
-            var rating = "";
-            var user_ratings_total = "";
-            var place_id = ""; //need this to get detailed info including opening hours
-            var price_level = "";
-            var vicinity = "";
+  $.ajax({
+    url: queryCompanyLookupURL,
+    method: "GET",
+  }).then(function (response) {
+    console.log("GooglePlaces: " + JSON.stringify(response));
+    console.log("GooglePlaces: " + queryCompanyLookupURL);
+    console.log("Latitude: " + response.candidates[0].geometry.location.lat);
+    console.log("Longitude: " + response.candidates[0].geometry.location.lng);
+    var lat = response.candidates[0].geometry.location.lat;
+    var long = response.candidates[0].geometry.location.lng;
 
-            for (var i = 0; i < 5; i++) {
-                name = response.results[i].name;
-                rating = response.results[i].rating;
-                user_ratings_total = response.results[i].user_ratings_total;
-                place_id = response.results[i].place_id;
-                price_level = response.results[i].price_level;
-                vicinity = response.results[i].vicinity;
-                barResults.push({ name: name, rating: rating, total_ratings: user_ratings_total, id: place_id, price: price_level, vicinity: vicinity });
+    // this is to get restaurants nearby
+    var queryNearbyLookupURL =
+      "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" +
+      lat +
+      "," +
+      long +
+      "&radius=1500&type=restaurant&key=" +
+      googleKey;
 
-                var newLi = $("<li>");
-                newLi.text(name + " | Rating: " + rating + " | No. of ratings: " + user_ratings_total);
-                newLi.attr("data-value", name + " " + vicinity)
-                newLi.addClass("placeNearby");
-                $("#barListEl").append(newLi);
-            }
-            console.log(barResults);
-        })
+    $.ajax({
+      url: queryNearbyLookupURL,
+      method: "GET",
+    }).then(function (response) {
+      console.log("GooglePlacesNearby: " + JSON.stringify(response));
 
-    })
-    // }
+      var name = "";
+      var rating = "";
+      var user_ratings_total = "";
+      var place_id = ""; //need this to get detailed info including opening hours
+      var price_level = "";
+      var vicinity = "";
 
-    var placeName;
-    var placeInfo = [];
+      for (var i = 0; i < 5; i++) {
+        name = response.results[i].name;
+        rating = response.results[i].rating;
+        user_ratings_total = response.results[i].user_ratings_total;
+        place_id = response.results[i].place_id;
+        price_level = response.results[i].price_level;
+        vicinity = response.results[i].vicinity;
+        restaurantResults.push({
+          name: name,
+          rating: rating,
+          total_ratings: user_ratings_total,
+          id: place_id,
+          price: price_level,
+          vicinity: vicinity,
+        });
 
-    // this is a placeholder for testing purposes (to see what we generate with inputs)
-    // test3();
+        var newLi = $("<li>");
+        newLi.text(
+          name +
+            " | Rating: " +
+            rating +
+            " | No. of ratings: " +
+            user_ratings_total
+        );
+        newLi.attr("data-value", name + " " + vicinity);
+        newLi.addClass("placeNearby");
+        $("#restListEl").append(newLi);
+      }
+      console.log(restaurantResults);
+    });
 
-    // function test3() {
-    //     placeName = "Free House  2700 Bancroft Way, Berkeley";
-    // }
+    // this is to get cafes nearby
+    var queryNearbyCoffeeLookupURL =
+      "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" +
+      lat +
+      "," +
+      long +
+      "&radius=1500&type=cafe&key=" +
+      googleKey;
 
-    // this is to get additional information of places nearby
+    $.ajax({
+      url: queryNearbyCoffeeLookupURL,
+      method: "GET",
+    }).then(function (response) {
+      console.log("GoogleCoffeeNearby: " + JSON.stringify(response));
 
+      var name = "";
+      var rating = "";
+      var user_ratings_total = "";
+      var place_id = ""; //need this to get detailed info including opening hours
+      var price_level = "";
+      var vicinity = "";
 
-    var formatted_address = "";
-    var name = "";
-    var opening_hours = "";
-    var photos = "";
+      for (var i = 0; i < 5; i++) {
+        name = response.results[i].name;
+        rating = response.results[i].rating;
+        user_ratings_total = response.results[i].user_ratings_total;
+        place_id = response.results[i].place_id;
+        price_level = response.results[i].price_level;
+        vicinity = response.results[i].vicinity;
+        cafeResults.push({
+          name: name,
+          rating: rating,
+          total_ratings: user_ratings_total,
+          id: place_id,
+          price: price_level,
+          vicinity: vicinity,
+        });
 
+        var newLi = $("<li>");
+        newLi.text(
+          name +
+            " | Rating: " +
+            rating +
+            " | No. of ratings: " +
+            user_ratings_total
+        );
+        newLi.attr("data-value", name + " " + vicinity);
+        newLi.addClass("placeNearby");
+        $("#cafeListEl").append(newLi);
+      }
+      console.log(cafeResults);
+    });
 
-    // placesNearby(); //remove - for testing only
-    $(document).on("click", ".placeNearby", placesNearby);
+    // this is to get bars nearby
+    var queryNearbyCoffeeLookupURL =
+      "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" +
+      lat +
+      "," +
+      long +
+      "&radius=1500&type=bar&key=" +
+      googleKey;
 
+    $.ajax({
+      url: queryNearbyCoffeeLookupURL,
+      method: "GET",
+    }).then(function (response) {
+      console.log("GoogleBarNearby: " + JSON.stringify(response));
 
-    function placesNearby(event) {
-        if (event.target.matches("li")) {
-            placeName = $(this).attr("data-value");
-            console.log($(this).attr("data-value"))
-            var test = 123;
-            console.log(test);
-            console.log("This check: " + placeName);
+      var name = "";
+      var rating = "";
+      var user_ratings_total = "";
+      var place_id = ""; //need this to get detailed info including opening hours
+      var price_level = "";
+      var vicinity = "";
 
-            var queryPlaceLookupURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=" + placeName + "&inputtype=textquery&fields=photos,formatted_address,name,rating,opening_hours,geometry&key=" + googleKey;
+      for (var i = 0; i < 5; i++) {
+        name = response.results[i].name;
+        rating = response.results[i].rating;
+        user_ratings_total = response.results[i].user_ratings_total;
+        place_id = response.results[i].place_id;
+        price_level = response.results[i].price_level;
+        vicinity = response.results[i].vicinity;
+        barResults.push({
+          name: name,
+          rating: rating,
+          total_ratings: user_ratings_total,
+          id: place_id,
+          price: price_level,
+          vicinity: vicinity,
+        });
 
+        var newLi = $("<li>");
+        newLi.text(
+          name +
+            " | Rating: " +
+            rating +
+            " | No. of ratings: " +
+            user_ratings_total
+        );
+        newLi.attr("data-value", name + " " + vicinity);
+        newLi.addClass("placeNearby");
+        $("#barListEl").append(newLi);
+      }
+      console.log(barResults);
+    });
+  });
+  // }
 
-            $.ajax({
-                url: queryPlaceLookupURL,
-                method: "GET",
+  var placeName;
+  var placeInfo = [];
 
-            }).then(function (response) {
-                console.log("Place Nearby Check: " + JSON.stringify(response));
-                formatted_address = response.candidates[0].formatted_address;
-                name = response.candidates[0].name;
-                photos = response.candidates[0].photos[0].photo_reference;
-                rating = response.candidates[0].rating;
-                placeInfo.push({ address: formatted_address, name: name, photos: photos, rating: rating })
+  // this is a placeholder for testing purposes (to see what we generate with inputs)
+  // test3();
 
-                console.log(placeInfo);
+  // function test3() {
+  //     placeName = "Free House  2700 Bancroft Way, Berkeley";
+  // }
 
-                $("#jobDescriptionEl").html("");
-                var placeName = $('<h2 class="work-feature-block-header">' + name + '</h2>');
-                var placePhoto = $('<img style= "margin: 25px 0">');
-                placePhoto.attr("src", "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=" + photos + "&key=" + googleKey);
-                var placeAddress = $("<p>" + formatted_address + "</p>");
-                var placeRating = $("<p>Rating: " + rating + "</p>");
+  // this is to get additional information of places nearby
 
-                $("#jobDescriptionEl").append(placeName, placePhoto, placeAddress, placeRating);
+  var formatted_address = "";
+  var name = "";
+  var opening_hours = "";
+  var photos = "";
 
+  // placesNearby(); //remove - for testing only
+  $(document).on("click", ".placeNearby", placesNearby);
 
-            }
-            )
+  function placesNearby(event) {
+    if (event.target.matches("li")) {
+      placeName = $(this).attr("data-value");
+      console.log($(this).attr("data-value"));
+      var test = 123;
+      console.log(test);
+      console.log("This check: " + placeName);
 
+      var queryPlaceLookupURL =
+        "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=" +
+        placeName +
+        "&inputtype=textquery&fields=photos,formatted_address,name,rating,opening_hours,geometry&key=" +
+        googleKey;
 
-        }
+      $.ajax({
+        url: queryPlaceLookupURL,
+        method: "GET",
+      }).then(function (response) {
+        console.log("Place Nearby Check: " + JSON.stringify(response));
+        formatted_address = response.candidates[0].formatted_address;
+        name = response.candidates[0].name;
+        photos = response.candidates[0].photos[0].photo_reference;
+        rating = response.candidates[0].rating;
+        placeInfo.push({
+          address: formatted_address,
+          name: name,
+          photos: photos,
+          rating: rating,
+        });
 
+        console.log(placeInfo);
+
+        $("#jobDescriptionEl").html("");
+        var placeName = $(
+          '<h2 class="work-feature-block-header">' + name + "</h2>"
+        );
+        var placePhoto = $('<img style= "margin: 25px 0">');
+        placePhoto.attr(
+          "src",
+          "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=" +
+            photos +
+            "&key=" +
+            googleKey
+        );
+        var placeAddress = $("<p>" + formatted_address + "</p>");
+        var placeRating = $("<p>Rating: " + rating + "</p>");
+
+        $("#jobDescriptionEl").append(
+          placeName,
+          placePhoto,
+          placeAddress,
+          placeRating
+        );
+      });
     }
+  }
 
-    // 3rd party API
-    var cardSection = document.getElementsByClassName("card-section");
-    for (let i = 0; i < cardSection.length; i++) {
-        cardSection[i].onclick = function () {
-            toastr.success("Great choice!");
-        }
+  // 3rd party API
+  var cardSection = document.getElementsByClassName("card-section");
+  for (let i = 0; i < cardSection.length; i++) {
+    cardSection[i].onclick = function () {
+      toastr.success("Great choice!");
     };
+  }
+});
 
-})
-
-
-
-
-
-
-
+function populateCompanyResults() {
+  var card = `<div class="card-section">
+                <div class="news-card-date" id="locationDisplayEl1">locationDisplayEl1</div>
+                <article class="news-card-article"></article>
+                  <h4 class="news-card-title" id= "companyDisplayEl1"><a href="#">companyDisplayEl1</a></h4>
+                  <p class="news-card-description" id= "titleDisplayEl1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae facere, ipsam quae sit, eaque perferendis commodi!...</p>
+                </article>
+               
+              </div>`;
+}
