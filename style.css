@@ -1,3 +1,6 @@
+/* * {
+  outline: 1px dotted black;
+} */
 .subnav-hero-section {
   text-align: center;
   background: #1779ba;
@@ -254,4 +257,31 @@
 
 .box {
   border-bottom: 1.5px solid #1779ba;
+}
+.switch input:checked ~ .switch-paddle,
+.switch.primary input:checked ~ .switch-paddle {
+  background: #1779ba;
+}
+
+.switch.secondary input:checked ~ .switch-paddle {
+  background: #767676;
+}
+
+.switch.success input:checked ~ .switch-paddle {
+  background: #3adb76;
+}
+
+.switch.alert input:checked ~ .switch-paddle {
+  background: #cc4b37;
+}
+
+.switch.warning input:checked ~ .switch-paddle {
+  background: #ffae00;
+}
+
+.m10 {
+  margin: 10px;
+}
+.subnav-hero-section {
+  font-family: ;
 }

@@ -4,14 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel= "stylesheet" href= "style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css" integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <link rel= "stylesheet" href= "style.css">
+
   </head>
+  
 <body>
 
     <header class="subnav-hero-section">
-    <h1 class="subnav-hero-headline">Foundation <small>by ZURB</small></h1>
+    <h1 class="subnav-hero-headline">Work<strong>&</strong>Balance</h1>
   </header>
   <div class="grid-x">
     <div class="cell medium-6 large-4">
@@ -27,21 +29,25 @@
         <div>
 
           <!--FULL-TIME CHECK BOX-->
-          <div  style= "margin: 2%; float: left;">
-              <label for="vehicle1"> Full Time: </label>
-              <input class = "checkbox" type="checkbox" id="myCheck">
-          </div>
-
-
-
-          <!--SUBMIT BUTTON ID=#searchButton -->
-          <div class="input-group-button" id="searchButton" style= "float: right; margin: 2%">
-            <input type="submit" class="button secondary" value="Search" id= "searchButton">
+          <div class="flex-input">
+            <div class="flex">
+              <label class="m10">Full-Time:</label>
+    
+              <div class="switch mb-0">
+                <input class="switch-input" id="defaultSwitch" type="checkbox" name="defaultSwitch">
+                <label class="switch-paddle" for="defaultSwitch">
+                  <span class="show-for-sr">Default Switch</span>
+                </label>
+              </div>
+            </div>
+            <div>
+              <button class="button m10" type="submit" id="searchButton" upperCase="button">Search</button>
+            </div>
           </div>
         </div>
 
-         <div style= "float: right;"> 
-          <div class="card news-card" style= "margin: 3%;">
+         <div> 
+          <div class="card news-card" style= "margin: 3%;" id="companyResults">
             <br/>
             <div class="card-section">
               <div class="news-card-date" id="locationDisplayEl1"></div>
