@@ -154,6 +154,8 @@ $(document).ready(function () {
             })
             companyDisplayEl2.click(function () {
                 i = companyDisplayEl2.data("value")
+
+
                 var jobDescriptionDisplay = $("#jobDescriptionEl");
                 jobDescriptionDisplay.html("")
                 jobDescriptionDisplay.append("<h1>" + companyResults[i].company + "</h1>, " + "<h2>" + companyResults[i].location + "</h2>");
@@ -165,12 +167,33 @@ $(document).ready(function () {
             })
             companyDisplayEl3.click(function () {
                 i = companyDisplayEl3.data("value")
+
                 var jobDescriptionDisplay = $("#jobDescriptionEl");
                 jobDescriptionDisplay.html("")
                 jobDescriptionDisplay.append("<h1>" + companyResults[i].company + "</h1>, " + "<h2>" + companyResults[i].location + "</h2>");
                 jobDescriptionDisplay.append("<h2>" + companyResults[i].title + "</h2>");
 
                 jobDescriptionDisplay.append("<p>" + companyResults[i].description + "</p>");
+
+                gitJobInput = companyResults[i].company+" "+companyResults[i].location
+
+            })
+            companyDisplayEl3.click(function () {
+                i = companyDisplayEl3.data("value")
+
+                var gitJobInput = companyResults[i].company+" "+companyResults[i].location
+
+            })
+            companyDisplayEl4.click(function () {
+                i = companyDisplayEl4.data("value")
+
+                var jobDescriptionDisplay = $("#jobDescriptionEl");
+                jobDescriptionDisplay.html("")
+                jobDescriptionDisplay.append("<h1>" + companyResults[i].company + "</h1>, " + "<h2>" + companyResults[i].location + "</h2>");
+                jobDescriptionDisplay.append("<h2>" + companyResults[i].title + "</h2>");
+
+                jobDescriptionDisplay.append("<p>" + companyResults[i].description + "</p>");
+
                 var gitJobInput = companyResults[i].company+" "+companyResults[i].location
 
             })
@@ -182,6 +205,7 @@ $(document).ready(function () {
                 jobDescriptionDisplay.append("<h2>" + companyResults[i].title + "</h2>");
 
                 jobDescriptionDisplay.append("<p>" + companyResults[i].description + "</p>");
+
                 gitJobInput = companyResults[i].company+" "+companyResults[i].location
 
             })
@@ -194,8 +218,10 @@ $(document).ready(function () {
 
                 jobDescriptionDisplay.append("<p>" + companyResults[i].description + "</p>");
                 gitJobInput = companyResults[i].company+" "+companyResults[i].location
+
                 console.log(gitJobInput)
                 placesDisplay();
+
             })
 
         })
