@@ -15,6 +15,12 @@ $(document).ready(function () {
     var companyDisplayEl4 = $("#companyDisplayEl4");
     var companyDisplayEl5 = $("#companyDisplayEl5");
 
+    companyDisplayEl1.data("value",0)
+    companyDisplayEl2.data("value",1)
+    companyDisplayEl3.data("value",2)
+    companyDisplayEl4.data("value",3)
+    companyDisplayEl5.data("value",4)
+
     var companyDisplayElAll = [companyDisplayEl1, companyDisplayEl2, companyDisplayEl3, companyDisplayEl4, companyDisplayEl5];
 
     var locationDisplayEl1 = $("#locationDisplayEl1");
@@ -59,6 +65,7 @@ $(document).ready(function () {
     //         console.log("no")
     //     }
     // }
+    var gitJobInput = "";
 
     submitButton.click(function () {
         var userFullTime = $("#myCheck").is(":checked");
@@ -134,18 +141,60 @@ $(document).ready(function () {
                 titleDisplayElAll[i].text(companyResults[i].title);
             }
             // ALLOWED EACH JOB TO HAVE A CLICK FUNCTION
-
             companyDisplayEl1.click(function () {
-                alert("clicked")
-                console.log(companyResults.company, "hey")
+                i = companyDisplayEl1.data("value")
                 var jobDescriptionDisplay = $("#jobDescriptionEl");
                 jobDescriptionDisplay.html("")
                 jobDescriptionDisplay.append("<h1>" + companyResults[i].company + "</h1>, " + "<h2>" + companyResults[i].location + "</h2>");
                 jobDescriptionDisplay.append("<h2>" + companyResults[i].title + "</h2>");
 
                 jobDescriptionDisplay.append("<p>" + companyResults[i].description + "</p>");
-            })
+                gitJobInput = companyResults[i].company+" "+companyResults[i].location
 
+            })
+            companyDisplayEl2.click(function () {
+                i = companyDisplayEl2.data("value")
+                var jobDescriptionDisplay = $("#jobDescriptionEl");
+                jobDescriptionDisplay.html("")
+                jobDescriptionDisplay.append("<h1>" + companyResults[i].company + "</h1>, " + "<h2>" + companyResults[i].location + "</h2>");
+                jobDescriptionDisplay.append("<h2>" + companyResults[i].title + "</h2>");
+
+                jobDescriptionDisplay.append("<p>" + companyResults[i].description + "</p>");
+                gitJobInput = companyResults[i].company+" "+companyResults[i].location
+
+            })
+            companyDisplayEl3.click(function () {
+                i = companyDisplayEl3.data("value")
+                var jobDescriptionDisplay = $("#jobDescriptionEl");
+                jobDescriptionDisplay.html("")
+                jobDescriptionDisplay.append("<h1>" + companyResults[i].company + "</h1>, " + "<h2>" + companyResults[i].location + "</h2>");
+                jobDescriptionDisplay.append("<h2>" + companyResults[i].title + "</h2>");
+
+                jobDescriptionDisplay.append("<p>" + companyResults[i].description + "</p>");
+                var gitJobInput = companyResults[i].company+" "+companyResults[i].location
+
+            })
+            companyDisplayEl4.click(function () {
+                i = companyDisplayEl4.data("value")
+                var jobDescriptionDisplay = $("#jobDescriptionEl");
+                jobDescriptionDisplay.html("")
+                jobDescriptionDisplay.append("<h1>" + companyResults[i].company + "</h1>, " + "<h2>" + companyResults[i].location + "</h2>");
+                jobDescriptionDisplay.append("<h2>" + companyResults[i].title + "</h2>");
+
+                jobDescriptionDisplay.append("<p>" + companyResults[i].description + "</p>");
+                gitJobInput = companyResults[i].company+" "+companyResults[i].location
+
+            })
+            companyDisplayEl5.click(function () {
+                i = companyDisplayEl5.data("value")
+                var jobDescriptionDisplay = $("#jobDescriptionEl");
+                jobDescriptionDisplay.html("")
+                jobDescriptionDisplay.append("<h1>" + companyResults[i].company + "</h1>, " + "<h2>" + companyResults[i].location + "</h2>");
+                jobDescriptionDisplay.append("<h2>" + companyResults[i].title + "</h2>");
+
+                jobDescriptionDisplay.append("<p>" + companyResults[i].description + "</p>");
+                gitJobInput = companyResults[i].company+" "+companyResults[i].location
+            })
 
         })
 
@@ -155,14 +204,13 @@ $(document).ready(function () {
     // start of Google Places
 
     // this variable should be equal to: companyResults[0].company+" "+companyResults[0].location;
-    var gitJobInput = "";
 
     var restaurantResults = [];
     var cafeResults = [];
     var barResults = [];
 
     // this is a placeholder for testing purposes (to see what we generate with inputs)
-    test2();
+    // test2();
 
     function test2() {
         gitJobInput = "Lawrence Berkeley National Laboratory  Berkeley";
