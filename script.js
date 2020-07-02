@@ -291,7 +291,7 @@ $(document).ready(function () {
         $("#restListEl").html("");
         $("#cafeListEl").html("");
         $("#barListEl").html("");
-
+        $("#showAddress").text("");
 
     
     var queryCompanyLookupURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=" + replaced + "&inputtype=textquery&fields=photos,formatted_address,name,rating,opening_hours,geometry&key=" + googleKey
@@ -307,6 +307,8 @@ $(document).ready(function () {
         console.log("Longitude: " + response.candidates[0].geometry.location.lng);
         var lat = response.candidates[0].geometry.location.lat;
         var long = response.candidates[0].geometry.location.lng;
+        var compAddress = response.candidates[0].formatted_address;
+        $("#showAddress").text("Showing results for: "+compAddress);
 
         // this is to get restaurants nearby
         var queryNearbyLookupURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + lat + "," + long + "&radius=1500&type=restaurant&key=" + googleKey;
@@ -434,7 +436,7 @@ $(document).ready(function () {
         $("#restListEl").html("");
         $("#cafeListEl").html("");
         $("#barListEl").html("");
-
+        $("#showAddress").text("");
 
     
     var queryCompanyLookupURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=" + replaced + "&inputtype=textquery&fields=photos,formatted_address,name,rating,opening_hours,geometry&key=" + googleKey
@@ -450,6 +452,8 @@ $(document).ready(function () {
         console.log("Longitude: " + response.candidates[0].geometry.location.lng);
         var lat = response.candidates[0].geometry.location.lat;
         var long = response.candidates[0].geometry.location.lng;
+        var compAddress = response.candidates[0].formatted_address;
+        $("#showAddress").text("Showing results for: "+compAddress);
 
         // this is to get restaurants nearby
         var queryNearbyLookupURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + lat + "," + long + "&radius=1500&type=restaurant&key=" + googleKey;
@@ -577,7 +581,7 @@ $(document).ready(function () {
         $("#restListEl").html("");
         $("#cafeListEl").html("");
         $("#barListEl").html("");
-
+        $("#showAddress").text("");
 
     
     var queryCompanyLookupURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=" + replaced + "&inputtype=textquery&fields=photos,formatted_address,name,rating,opening_hours,geometry&key=" + googleKey
@@ -593,6 +597,8 @@ $(document).ready(function () {
         console.log("Longitude: " + response.candidates[0].geometry.location.lng);
         var lat = response.candidates[0].geometry.location.lat;
         var long = response.candidates[0].geometry.location.lng;
+        var compAddress = response.candidates[0].formatted_address;
+        $("#showAddress").text("Showing results for: "+compAddress);
 
         // this is to get restaurants nearby
         var queryNearbyLookupURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + lat + "," + long + "&radius=1500&type=restaurant&key=" + googleKey;
@@ -724,7 +730,7 @@ $(document).ready(function () {
         $("#restListEl").html("");
         $("#cafeListEl").html("");
         $("#barListEl").html("");
-
+        $("#showAddress").text("");
 
     
     var queryCompanyLookupURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=" + replaced + "&inputtype=textquery&fields=photos,formatted_address,name,rating,opening_hours,geometry&key=" + googleKey
@@ -740,6 +746,8 @@ $(document).ready(function () {
         console.log("Longitude: " + response.candidates[0].geometry.location.lng);
         var lat = response.candidates[0].geometry.location.lat;
         var long = response.candidates[0].geometry.location.lng;
+        var compAddress = response.candidates[0].formatted_address;
+        $("#showAddress").text("Showing results for: "+compAddress);
 
         // this is to get restaurants nearby
         var queryNearbyLookupURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + lat + "," + long + "&radius=1500&type=restaurant&key=" + googleKey;
@@ -1008,7 +1016,7 @@ $(document).ready(function () {
         $("#restListEl").html("");
         $("#cafeListEl").html("");
         $("#barListEl").html("");
-
+        $("#showAddress").text("");
 
     
     var queryCompanyLookupURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=" + replaced + "&inputtype=textquery&fields=photos,formatted_address,name,rating,opening_hours,geometry&key=" + googleKey
@@ -1024,6 +1032,8 @@ $(document).ready(function () {
         console.log("Longitude: " + response.candidates[0].geometry.location.lng);
         var lat = response.candidates[0].geometry.location.lat;
         var long = response.candidates[0].geometry.location.lng;
+        var compAddress = response.candidates[0].formatted_address;
+        $("#showAddress").text("Showing results for: "+compAddress);
 
         // this is to get restaurants nearby
         var queryNearbyLookupURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + lat + "," + long + "&radius=1500&type=restaurant&key=" + googleKey;
