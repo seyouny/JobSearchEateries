@@ -48,23 +48,7 @@ $(document).ready(function () {
     // Search button click event
 
 
-    // this is a placeholder for testing purposes(to see what we generate with inputs)
-    //     test();
-
-    // console.log (jobDescription,"hello")
-    // function test() {
-
-    // }
-    // function checkFunction(){
-    //     if (userFullTime.checked == true){
-    //         fullTime = "yes";
-    //         console.log("yes")
-    //     }
-    //     else{
-    //         fullTime= "no";
-    //         console.log("no")
-    //     }
-    // }
+    
     var gitJobInput = "";
 
     submitButton.click(function () {
@@ -84,8 +68,6 @@ $(document).ready(function () {
 
         jobSearch();
     })
-
-    // this is a placeholder for the ajax connection for GitHub jobs (to be moved under submit button on click once html is ready)
 
     function jobSearch() {
         var queryURL = "https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?description=" + jobDescription + "&location=" + eLocation + "&full_time=" + fullTime;
@@ -140,140 +122,21 @@ $(document).ready(function () {
                 locationDisplayElAll[i].text(companyResults[i].location);
                 titleDisplayElAll[i].text(companyResults[i].title);
             }
-            // ALLOWED EACH JOB TO HAVE A CLICK FUNCTION
-            // companyDisplayEl1.click(function () {
-            //     i = companyDisplayEl1.data("value")
-            //     var jobDescriptionDisplay = $("#jobDescriptionEl");
-            //     jobDescriptionDisplay.html("")
-            //     jobDescriptionDisplay.append("<h1>" + companyResults[i].company + "</h1>, " + "<h2>" + companyResults[i].location + "</h2>");
-            //     jobDescriptionDisplay.append("<h2>" + companyResults[i].title + "</h2>");
-
-            //     jobDescriptionDisplay.append("<p>" + companyResults[i].description + "</p>");
-            //     gitJobInput = companyResults[i].company+" "+companyResults[i].location
-            //     console.log("GitJobInput: "+gitJobInput);
-            //     placesDisplay();
-
-
-            // })
-            // companyDisplayEl2.click(function () {
-            //     i = companyDisplayEl2.data("value")
-
-
-            //     var jobDescriptionDisplay = $("#jobDescriptionEl");
-            //     jobDescriptionDisplay.html("")
-            //     jobDescriptionDisplay.append("<h1>" + companyResults[i].company + "</h1>, " + "<h2>" + companyResults[i].location + "</h2>");
-            //     jobDescriptionDisplay.append("<h2>" + companyResults[i].title + "</h2>");
-
-            //     jobDescriptionDisplay.append("<p>" + companyResults[i].description + "</p>");
-            //     gitJobInput = companyResults[i].company+" "+companyResults[i].location
-            //     placesDisplay();
-
-
-            // })
-            // companyDisplayEl3.click(function () {
-            //     i = companyDisplayEl3.data("value")
-
-            //     var jobDescriptionDisplay = $("#jobDescriptionEl");
-            //     jobDescriptionDisplay.html("")
-            //     jobDescriptionDisplay.append("<h1>" + companyResults[i].company + "</h1>, " + "<h2>" + companyResults[i].location + "</h2>");
-            //     jobDescriptionDisplay.append("<h2>" + companyResults[i].title + "</h2>");
-
-            //     jobDescriptionDisplay.append("<p>" + companyResults[i].description + "</p>");
-
-            //     gitJobInput = companyResults[i].company+" "+companyResults[i].location
-            //     placesDisplay();
-
-
-            // })
-            // companyDisplayEl3.click(function () {
-            //     i = companyDisplayEl3.data("value")
-
-            //     var gitJobInput = companyResults[i].company+" "+companyResults[i].location
-
-            // })
-            // companyDisplayEl4.click(function () {
-            //     i = companyDisplayEl4.data("value")
-
-            //     var jobDescriptionDisplay = $("#jobDescriptionEl");
-            //     jobDescriptionDisplay.html("")
-            //     jobDescriptionDisplay.append("<h1>" + companyResults[i].company + "</h1>, " + "<h2>" + companyResults[i].location + "</h2>");
-            //     jobDescriptionDisplay.append("<h2>" + companyResults[i].title + "</h2>");
-
-            //     jobDescriptionDisplay.append("<p>" + companyResults[i].description + "</p>");
-
-            //     var gitJobInput = companyResults[i].company+" "+companyResults[i].location
-            //     placesDisplay();
-
-
-            // })
-            // companyDisplayEl4.click(function () {
-            //     i = companyDisplayEl4.data("value")
-            //     var jobDescriptionDisplay = $("#jobDescriptionEl");
-            //     jobDescriptionDisplay.html("")
-            //     jobDescriptionDisplay.append("<h1>" + companyResults[i].company + "</h1>, " + "<h2>" + companyResults[i].location + "</h2>");
-            //     jobDescriptionDisplay.append("<h2>" + companyResults[i].title + "</h2>");
-
-            //     jobDescriptionDisplay.append("<p>" + companyResults[i].description + "</p>");
-
-            //     gitJobInput = companyResults[i].company+" "+companyResults[i].location
-            //     placesDisplay();
-
-
-            // })
-            // companyDisplayEl5.click(function () {
-            //     i = companyDisplayEl5.data("value")
-            //     var jobDescriptionDisplay = $("#jobDescriptionEl");
-            //     jobDescriptionDisplay.html("")
-            //     jobDescriptionDisplay.append("<h1>" + companyResults[i].company + "</h1>, " + "<h2>" + companyResults[i].location + "</h2>");
-            //     jobDescriptionDisplay.append("<h2>" + companyResults[i].title + "</h2>");
-
-            //     jobDescriptionDisplay.append("<p>" + companyResults[i].description + "</p>");
-            //     gitJobInput = companyResults[i].company+" "+companyResults[i].location
-
-            //     console.log(gitJobInput)
-            //     placesDisplay();
-
-            // })
 
         })
 
     }
-    // companyDisplayEl5.click(function () {
-    //     i = companyDisplayEl5.data("value")
-    //     var jobDescriptionDisplay = $("#jobDescriptionEl");
-    //     jobDescriptionDisplay.html("")
-    //     jobDescriptionDisplay.append("<h1>" + companyResults[i].company + "</h1>, " + "<h2>" + companyResults[i].location + "</h2>");
-    //     jobDescriptionDisplay.append("<h2>" + companyResults[i].title + "</h2>");
-
-    //     jobDescriptionDisplay.append("<p>" + companyResults[i].description + "</p>");
-    //     gitJobInput = companyResults[i].company+" "+companyResults[i].location
-
-    //     console.log(gitJobInput)
-    // })
 
     // start of Google Places
 
-    // this variable should be equal to: companyResults[0].company+" "+companyResults[0].location;
 
     var restaurantResults = [];
     var cafeResults = [];
     var barResults = [];
 
-    // this is a placeholder for testing purposes (to see what we generate with inputs)
-    // test2();
-
-    // function test2() {
-    //     gitJobInput = "Lawrence Berkeley National Laboratory  Berkeley";
-    // }
-
-    // this is a placeholder for the ajax connection for Google Places (to be moved under on click once html is ready)
-
-
-
 
     var googleKey = "AIzaSyB-ehBeU-4Z5TYNJpC70UeoXVspIgUkotw";
-    // placesNearby(); //to be removed - for testing only
-    // function placesNearby() {
+
     // this is to get the location of the job
     companyDisplayEl1.click(function () {
         i = companyDisplayEl1.data("value")
@@ -321,6 +184,8 @@ $(document).ready(function () {
             console.log("GooglePlacesNearby: " + JSON.stringify(response));
 
             var name = "";
+            var nameLink = ""; //new
+            var nameText = ""; //new
             var rating = "";
             var user_ratings_total = "";
             var place_id = ""; //need this to get detailed info including opening hours
@@ -329,6 +194,8 @@ $(document).ready(function () {
 
             for (var i = 0; i < 5; i++) {
                 name = response.results[i].name;
+                nameLink = $('<a href="#">'+response.results[i].name+" "+"</a>");
+                nameText = $('<p style="display:inline-block">'+" "+" | Rating: "+rating+ " | No. of ratings: " + user_ratings_total+"</p>")
                 rating = response.results[i].rating;
                 user_ratings_total = response.results[i].user_ratings_total;
                 place_id = response.results[i].place_id;
@@ -336,10 +203,11 @@ $(document).ready(function () {
                 vicinity = response.results[i].vicinity;
                 restaurantResults.push({ name: name, rating: rating, total_ratings: user_ratings_total, id: place_id, price: price_level, vicinity: vicinity });
 
-                var newLi = $("<li>");
-                newLi.text(name + " | Rating: " + rating + " | No. of ratings: " + user_ratings_total);
-                newLi.attr("data-value", name + " " + vicinity)
-                newLi.addClass("placeNearby");
+                var newLi = $('<li style="list-style-type: none;">'); //new
+                newLi.append(nameLink, nameText); //new
+                // newLi.text(" | Rating: " + rating + " | No. of ratings: " + user_ratings_total);
+                nameLink.attr("data-value", name + " " + vicinity); //new
+                nameLink.addClass("placeNearby"); //new
                 $("#restListEl").append(newLi);
             }
             console.log(restaurantResults);
@@ -356,6 +224,8 @@ $(document).ready(function () {
             console.log("GoogleCoffeeNearby: " + JSON.stringify(response));
 
             var name = "";
+            var nameLink = ""; //new
+            var nameText = ""; //new
             var rating = "";
             var user_ratings_total = "";
             var place_id = ""; //need this to get detailed info including opening hours
@@ -364,6 +234,8 @@ $(document).ready(function () {
 
             for (var i = 0; i < 5; i++) {
                 name = response.results[i].name;
+                nameLink = $('<a href="#">'+response.results[i].name+" "+"</a>");
+                nameText = $('<p style="display:inline-block">'+" "+" | Rating: "+rating+ " | No. of ratings: " + user_ratings_total+"</p>")
                 rating = response.results[i].rating;
                 user_ratings_total = response.results[i].user_ratings_total;
                 place_id = response.results[i].place_id;
@@ -371,10 +243,11 @@ $(document).ready(function () {
                 vicinity = response.results[i].vicinity;
                 cafeResults.push({ name: name, rating: rating, total_ratings: user_ratings_total, id: place_id, price: price_level, vicinity: vicinity });
 
-                var newLi = $("<li>");
-                newLi.text(name + " | Rating: " + rating + " | No. of ratings: " + user_ratings_total);
-                newLi.attr("data-value", name + " " + vicinity)
-                newLi.addClass("placeNearby");
+                var newLi = $('<li style="list-style-type: none;">'); //new
+                newLi.append(nameLink, nameText); //new
+                // newLi.text(" | Rating: " + rating + " | No. of ratings: " + user_ratings_total);
+                nameLink.attr("data-value", name + " " + vicinity); //new
+                nameLink.addClass("placeNearby"); //new
                 $("#cafeListEl").append(newLi);
             }
             console.log(cafeResults);
@@ -391,6 +264,8 @@ $(document).ready(function () {
             console.log("GoogleBarNearby: " + JSON.stringify(response));
 
             var name = "";
+            var nameLink = ""; //new
+            var nameText = ""; //new
             var rating = "";
             var user_ratings_total = "";
             var place_id = ""; //need this to get detailed info including opening hours
@@ -399,6 +274,8 @@ $(document).ready(function () {
 
             for (var i = 0; i < 5; i++) {
                 name = response.results[i].name;
+                nameLink = $('<a href="#">'+response.results[i].name+" "+"</a>");
+                nameText = $('<p style="display:inline-block">'+" "+" | Rating: "+rating+ " | No. of ratings: " + user_ratings_total+"</p>")
                 rating = response.results[i].rating;
                 user_ratings_total = response.results[i].user_ratings_total;
                 place_id = response.results[i].place_id;
@@ -406,10 +283,11 @@ $(document).ready(function () {
                 vicinity = response.results[i].vicinity;
                 barResults.push({ name: name, rating: rating, total_ratings: user_ratings_total, id: place_id, price: price_level, vicinity: vicinity });
 
-                var newLi = $("<li>");
-                newLi.text(name + " | Rating: " + rating + " | No. of ratings: " + user_ratings_total);
-                newLi.attr("data-value", name + " " + vicinity)
-                newLi.addClass("placeNearby");
+                var newLi = $('<li style="list-style-type: none;">'); //new
+                newLi.append(nameLink, nameText); //new
+                // newLi.text(" | Rating: " + rating + " | No. of ratings: " + user_ratings_total);
+                nameLink.attr("data-value", name + " " + vicinity); //new
+                nameLink.addClass("placeNearby"); //new
                 $("#barListEl").append(newLi);
             }
             console.log(barResults);
@@ -466,6 +344,8 @@ $(document).ready(function () {
             console.log("GooglePlacesNearby: " + JSON.stringify(response));
 
             var name = "";
+            var nameLink = ""; //new
+            var nameText = ""; //new
             var rating = "";
             var user_ratings_total = "";
             var place_id = ""; //need this to get detailed info including opening hours
@@ -474,6 +354,8 @@ $(document).ready(function () {
 
             for (var i = 0; i < 5; i++) {
                 name = response.results[i].name;
+                nameLink = $('<a href="#">'+response.results[i].name+" "+"</a>");
+                nameText = $('<p style="display:inline-block">'+" "+" | Rating: "+rating+ " | No. of ratings: " + user_ratings_total+"</p>")
                 rating = response.results[i].rating;
                 user_ratings_total = response.results[i].user_ratings_total;
                 place_id = response.results[i].place_id;
@@ -481,10 +363,11 @@ $(document).ready(function () {
                 vicinity = response.results[i].vicinity;
                 restaurantResults.push({ name: name, rating: rating, total_ratings: user_ratings_total, id: place_id, price: price_level, vicinity: vicinity });
 
-                var newLi = $("<li>");
-                newLi.text(name + " | Rating: " + rating + " | No. of ratings: " + user_ratings_total);
-                newLi.attr("data-value", name + " " + vicinity)
-                newLi.addClass("placeNearby");
+                var newLi = $('<li style="list-style-type: none;">'); //new
+                newLi.append(nameLink, nameText); //new
+                // newLi.text(" | Rating: " + rating + " | No. of ratings: " + user_ratings_total);
+                nameLink.attr("data-value", name + " " + vicinity); //new
+                nameLink.addClass("placeNearby"); //new
                 $("#restListEl").append(newLi);
             }
             console.log(restaurantResults);
@@ -501,6 +384,8 @@ $(document).ready(function () {
             console.log("GoogleCoffeeNearby: " + JSON.stringify(response));
 
             var name = "";
+            var nameLink = ""; //new
+            var nameText = ""; //new
             var rating = "";
             var user_ratings_total = "";
             var place_id = ""; //need this to get detailed info including opening hours
@@ -509,6 +394,8 @@ $(document).ready(function () {
 
             for (var i = 0; i < 5; i++) {
                 name = response.results[i].name;
+                nameLink = $('<a href="#">'+response.results[i].name+" "+"</a>");
+                nameText = $('<p style="display:inline-block">'+" "+" | Rating: "+rating+ " | No. of ratings: " + user_ratings_total+"</p>")
                 rating = response.results[i].rating;
                 user_ratings_total = response.results[i].user_ratings_total;
                 place_id = response.results[i].place_id;
@@ -516,10 +403,11 @@ $(document).ready(function () {
                 vicinity = response.results[i].vicinity;
                 cafeResults.push({ name: name, rating: rating, total_ratings: user_ratings_total, id: place_id, price: price_level, vicinity: vicinity });
 
-                var newLi = $("<li>");
-                newLi.text(name + " | Rating: " + rating + " | No. of ratings: " + user_ratings_total);
-                newLi.attr("data-value", name + " " + vicinity)
-                newLi.addClass("placeNearby");
+                var newLi = $('<li style="list-style-type: none;">'); //new
+                newLi.append(nameLink, nameText); //new
+                // newLi.text(" | Rating: " + rating + " | No. of ratings: " + user_ratings_total);
+                nameLink.attr("data-value", name + " " + vicinity); //new
+                nameLink.addClass("placeNearby"); //new
                 $("#cafeListEl").append(newLi);
             }
             console.log(cafeResults);
@@ -536,6 +424,8 @@ $(document).ready(function () {
             console.log("GoogleBarNearby: " + JSON.stringify(response));
 
             var name = "";
+            var nameLink = ""; //new
+            var nameText = ""; //new
             var rating = "";
             var user_ratings_total = "";
             var place_id = ""; //need this to get detailed info including opening hours
@@ -544,6 +434,8 @@ $(document).ready(function () {
 
             for (var i = 0; i < 5; i++) {
                 name = response.results[i].name;
+                nameLink = $('<a href="#">'+response.results[i].name+" "+"</a>");
+                nameText = $('<p style="display:inline-block">'+" "+" | Rating: "+rating+ " | No. of ratings: " + user_ratings_total+"</p>")
                 rating = response.results[i].rating;
                 user_ratings_total = response.results[i].user_ratings_total;
                 place_id = response.results[i].place_id;
@@ -551,10 +443,11 @@ $(document).ready(function () {
                 vicinity = response.results[i].vicinity;
                 barResults.push({ name: name, rating: rating, total_ratings: user_ratings_total, id: place_id, price: price_level, vicinity: vicinity });
 
-                var newLi = $("<li>");
-                newLi.text(name + " | Rating: " + rating + " | No. of ratings: " + user_ratings_total);
-                newLi.attr("data-value", name + " " + vicinity)
-                newLi.addClass("placeNearby");
+                var newLi = $('<li style="list-style-type: none;">'); //new
+                newLi.append(nameLink, nameText); //new
+                // newLi.text(" | Rating: " + rating + " | No. of ratings: " + user_ratings_total);
+                nameLink.attr("data-value", name + " " + vicinity); //new
+                nameLink.addClass("placeNearby"); //new
                 $("#barListEl").append(newLi);
             }
             console.log(barResults);
@@ -611,6 +504,8 @@ $(document).ready(function () {
             console.log("GooglePlacesNearby: " + JSON.stringify(response));
 
             var name = "";
+            var nameLink = ""; //new
+            var nameText = ""; //new
             var rating = "";
             var user_ratings_total = "";
             var place_id = ""; //need this to get detailed info including opening hours
@@ -619,6 +514,8 @@ $(document).ready(function () {
 
             for (var i = 0; i < 5; i++) {
                 name = response.results[i].name;
+                nameLink = $('<a href="#">'+response.results[i].name+" "+"</a>");
+                nameText = $('<p style="display:inline-block">'+" "+" | Rating: "+rating+ " | No. of ratings: " + user_ratings_total+"</p>")
                 rating = response.results[i].rating;
                 user_ratings_total = response.results[i].user_ratings_total;
                 place_id = response.results[i].place_id;
@@ -626,10 +523,11 @@ $(document).ready(function () {
                 vicinity = response.results[i].vicinity;
                 restaurantResults.push({ name: name, rating: rating, total_ratings: user_ratings_total, id: place_id, price: price_level, vicinity: vicinity });
 
-                var newLi = $("<li>");
-                newLi.text(name + " | Rating: " + rating + " | No. of ratings: " + user_ratings_total);
-                newLi.attr("data-value", name + " " + vicinity)
-                newLi.addClass("placeNearby");
+                var newLi = $('<li style="list-style-type: none;">'); //new
+                newLi.append(nameLink, nameText); //new
+                // newLi.text(" | Rating: " + rating + " | No. of ratings: " + user_ratings_total);
+                nameLink.attr("data-value", name + " " + vicinity); //new
+                nameLink.addClass("placeNearby"); //new
                 $("#restListEl").append(newLi);
             }
             console.log(restaurantResults);
@@ -646,6 +544,8 @@ $(document).ready(function () {
             console.log("GoogleCoffeeNearby: " + JSON.stringify(response));
 
             var name = "";
+            var nameLink = ""; //new
+            var nameText = ""; //new
             var rating = "";
             var user_ratings_total = "";
             var place_id = ""; //need this to get detailed info including opening hours
@@ -654,6 +554,8 @@ $(document).ready(function () {
 
             for (var i = 0; i < 5; i++) {
                 name = response.results[i].name;
+                nameLink = $('<a href="#">'+response.results[i].name+" "+"</a>");
+                nameText = $('<p style="display:inline-block">'+" "+" | Rating: "+rating+ " | No. of ratings: " + user_ratings_total+"</p>")
                 rating = response.results[i].rating;
                 user_ratings_total = response.results[i].user_ratings_total;
                 place_id = response.results[i].place_id;
@@ -661,10 +563,11 @@ $(document).ready(function () {
                 vicinity = response.results[i].vicinity;
                 cafeResults.push({ name: name, rating: rating, total_ratings: user_ratings_total, id: place_id, price: price_level, vicinity: vicinity });
 
-                var newLi = $("<li>");
-                newLi.text(name + " | Rating: " + rating + " | No. of ratings: " + user_ratings_total);
-                newLi.attr("data-value", name + " " + vicinity)
-                newLi.addClass("placeNearby");
+                var newLi = $('<li style="list-style-type: none;">'); //new
+                newLi.append(nameLink, nameText); //new
+                // newLi.text(" | Rating: " + rating + " | No. of ratings: " + user_ratings_total);
+                nameLink.attr("data-value", name + " " + vicinity); //new
+                nameLink.addClass("placeNearby"); //new
                 $("#cafeListEl").append(newLi);
             }
             console.log(cafeResults);
@@ -681,6 +584,8 @@ $(document).ready(function () {
             console.log("GoogleBarNearby: " + JSON.stringify(response));
 
             var name = "";
+            var nameLink = ""; //new
+            var nameText = ""; //new
             var rating = "";
             var user_ratings_total = "";
             var place_id = ""; //need this to get detailed info including opening hours
@@ -689,6 +594,8 @@ $(document).ready(function () {
 
             for (var i = 0; i < 5; i++) {
                 name = response.results[i].name;
+                nameLink = $('<a href="#">'+response.results[i].name+" "+"</a>");
+                nameText = $('<p style="display:inline-block">'+" "+" | Rating: "+rating+ " | No. of ratings: " + user_ratings_total+"</p>")
                 rating = response.results[i].rating;
                 user_ratings_total = response.results[i].user_ratings_total;
                 place_id = response.results[i].place_id;
@@ -696,10 +603,11 @@ $(document).ready(function () {
                 vicinity = response.results[i].vicinity;
                 barResults.push({ name: name, rating: rating, total_ratings: user_ratings_total, id: place_id, price: price_level, vicinity: vicinity });
 
-                var newLi = $("<li>");
-                newLi.text(name + " | Rating: " + rating + " | No. of ratings: " + user_ratings_total);
-                newLi.attr("data-value", name + " " + vicinity)
-                newLi.addClass("placeNearby");
+                var newLi = $('<li style="list-style-type: none;">'); //new
+                newLi.append(nameLink, nameText); //new
+                // newLi.text(" | Rating: " + rating + " | No. of ratings: " + user_ratings_total);
+                nameLink.attr("data-value", name + " " + vicinity); //new
+                nameLink.addClass("placeNearby"); //new
                 $("#barListEl").append(newLi);
             }
             console.log(barResults);
@@ -760,6 +668,8 @@ $(document).ready(function () {
             console.log("GooglePlacesNearby: " + JSON.stringify(response));
 
             var name = "";
+            var nameLink = ""; //new
+            var nameText = ""; //new
             var rating = "";
             var user_ratings_total = "";
             var place_id = ""; //need this to get detailed info including opening hours
@@ -768,6 +678,8 @@ $(document).ready(function () {
 
             for (var i = 0; i < 5; i++) {
                 name = response.results[i].name;
+                nameLink = $('<a href="#">'+response.results[i].name+" "+"</a>");
+                nameText = $('<p style="display:inline-block">'+" "+" | Rating: "+rating+ " | No. of ratings: " + user_ratings_total+"</p>")
                 rating = response.results[i].rating;
                 user_ratings_total = response.results[i].user_ratings_total;
                 place_id = response.results[i].place_id;
@@ -775,10 +687,11 @@ $(document).ready(function () {
                 vicinity = response.results[i].vicinity;
                 restaurantResults.push({ name: name, rating: rating, total_ratings: user_ratings_total, id: place_id, price: price_level, vicinity: vicinity });
 
-                var newLi = $("<li>");
-                newLi.text(name + " | Rating: " + rating + " | No. of ratings: " + user_ratings_total);
-                newLi.attr("data-value", name + " " + vicinity)
-                newLi.addClass("placeNearby");
+                var newLi = $('<li style="list-style-type: none;">'); //new
+                newLi.append(nameLink, nameText); //new
+                // newLi.text(" | Rating: " + rating + " | No. of ratings: " + user_ratings_total);
+                nameLink.attr("data-value", name + " " + vicinity); //new
+                nameLink.addClass("placeNearby"); //new
                 $("#restListEl").append(newLi);
             }
             console.log(restaurantResults);
@@ -795,6 +708,8 @@ $(document).ready(function () {
             console.log("GoogleCoffeeNearby: " + JSON.stringify(response));
 
             var name = "";
+            var nameLink = ""; //new
+            var nameText = ""; //new
             var rating = "";
             var user_ratings_total = "";
             var place_id = ""; //need this to get detailed info including opening hours
@@ -803,6 +718,8 @@ $(document).ready(function () {
 
             for (var i = 0; i < 5; i++) {
                 name = response.results[i].name;
+                nameLink = $('<a href="#">'+response.results[i].name+" "+"</a>");
+                nameText = $('<p style="display:inline-block">'+" "+" | Rating: "+rating+ " | No. of ratings: " + user_ratings_total+"</p>")
                 rating = response.results[i].rating;
                 user_ratings_total = response.results[i].user_ratings_total;
                 place_id = response.results[i].place_id;
@@ -810,10 +727,11 @@ $(document).ready(function () {
                 vicinity = response.results[i].vicinity;
                 cafeResults.push({ name: name, rating: rating, total_ratings: user_ratings_total, id: place_id, price: price_level, vicinity: vicinity });
 
-                var newLi = $("<li>");
-                newLi.text(name + " | Rating: " + rating + " | No. of ratings: " + user_ratings_total);
-                newLi.attr("data-value", name + " " + vicinity)
-                newLi.addClass("placeNearby");
+                var newLi = $('<li style="list-style-type: none;">'); //new
+                newLi.append(nameLink, nameText); //new
+                // newLi.text(" | Rating: " + rating + " | No. of ratings: " + user_ratings_total);
+                nameLink.attr("data-value", name + " " + vicinity); //new
+                nameLink.addClass("placeNearby"); //new
                 $("#cafeListEl").append(newLi);
             }
             console.log(cafeResults);
@@ -830,6 +748,8 @@ $(document).ready(function () {
             console.log("GoogleBarNearby: " + JSON.stringify(response));
 
             var name = "";
+            var nameLink = ""; //new
+            var nameText = ""; //new
             var rating = "";
             var user_ratings_total = "";
             var place_id = ""; //need this to get detailed info including opening hours
@@ -838,6 +758,8 @@ $(document).ready(function () {
 
             for (var i = 0; i < 5; i++) {
                 name = response.results[i].name;
+                nameLink = $('<a href="#">'+response.results[i].name+" "+"</a>");
+                nameText = $('<p style="display:inline-block">'+" "+" | Rating: "+rating+ " | No. of ratings: " + user_ratings_total+"</p>")
                 rating = response.results[i].rating;
                 user_ratings_total = response.results[i].user_ratings_total;
                 place_id = response.results[i].place_id;
@@ -845,10 +767,11 @@ $(document).ready(function () {
                 vicinity = response.results[i].vicinity;
                 barResults.push({ name: name, rating: rating, total_ratings: user_ratings_total, id: place_id, price: price_level, vicinity: vicinity });
 
-                var newLi = $("<li>");
-                newLi.text(name + " | Rating: " + rating + " | No. of ratings: " + user_ratings_total);
-                newLi.attr("data-value", name + " " + vicinity)
-                newLi.addClass("placeNearby");
+                var newLi = $('<li style="list-style-type: none;">'); //new
+                newLi.append(nameLink, nameText); //new
+                // newLi.text(" | Rating: " + rating + " | No. of ratings: " + user_ratings_total);
+                nameLink.attr("data-value", name + " " + vicinity); //new
+                nameLink.addClass("placeNearby"); //new
                 $("#barListEl").append(newLi);
             }
             console.log(barResults);
@@ -857,148 +780,7 @@ $(document).ready(function () {
 
 
     })
-//     companyDisplayEl4.click(function () {
-//         i = companyDisplayEl4.data("value")
-//         var jobDescriptionDisplay = $("#jobDescriptionEl");
-//         jobDescriptionDisplay.html("")
-//         jobDescriptionDisplay.append("<h1>" + companyResults[i].company + "</h1>, " + "<h2>" + companyResults[i].location + "</h2>");
-//         jobDescriptionDisplay.append("<h2>" + companyResults[i].title + "</h2>");
 
-//         jobDescriptionDisplay.append("<p>" + companyResults[i].description + "</p>");
-
-//         gitJobInput = companyResults[i].company+"+"+companyResults[i].location.trim()
-//         var replaced = gitJobInput.split(' ').join('+');
-
-//         console.log(gitJobInput)
-//         console.log("replaced: "+replaced)
-//         $("#restListEl").html("");
-//         $("#cafeListEl").html("");
-//         $("#barListEl").html("");
-
-
-    
-//     var queryCompanyLookupURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=" + replaced + "&inputtype=textquery&fields=photos,formatted_address,name,rating,opening_hours,geometry&key=" + googleKey
-
-//     $.ajax({
-//         url: queryCompanyLookupURL,
-//         method: "GET",
-
-//     }).then(function (response) {
-//         console.log("GooglePlaces: " + JSON.stringify(response));
-//         console.log("GooglePlaces: " + queryCompanyLookupURL);
-//         console.log("Latitude: " + response.candidates[0].geometry.location.lat);
-//         console.log("Longitude: " + response.candidates[0].geometry.location.lng);
-//         var lat = response.candidates[0].geometry.location.lat;
-//         var long = response.candidates[0].geometry.location.lng;
-
-//         // this is to get restaurants nearby
-//         var queryNearbyLookupURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + lat + "," + long + "&radius=1500&type=restaurant&key=" + googleKey;
-
-//         $.ajax({
-//             url: queryNearbyLookupURL,
-//             method: "GET",
-
-//         }).then(function (response) {
-//             console.log("GooglePlacesNearby: " + JSON.stringify(response));
-
-//             var name = "";
-//             var rating = "";
-//             var user_ratings_total = "";
-//             var place_id = ""; //need this to get detailed info including opening hours
-//             var price_level = "";
-//             var vicinity = "";
-
-//             for (var i = 0; i < 5; i++) {
-//                 name = response.results[i].name;
-//                 rating = response.results[i].rating;
-//                 user_ratings_total = response.results[i].user_ratings_total;
-//                 place_id = response.results[i].place_id;
-//                 price_level = response.results[i].price_level;
-//                 vicinity = response.results[i].vicinity;
-//                 restaurantResults.push({ name: name, rating: rating, total_ratings: user_ratings_total, id: place_id, price: price_level, vicinity: vicinity });
-
-//                 var newLi = $("<li>");
-//                 newLi.text(name + " | Rating: " + rating + " | No. of ratings: " + user_ratings_total);
-//                 newLi.attr("data-value", name + " " + vicinity)
-//                 newLi.addClass("placeNearby");
-//                 $("#restListEl").append(newLi);
-//             }
-//             console.log(restaurantResults);
-//         })
-
-//         // this is to get cafes nearby
-//         var queryNearbyCoffeeLookupURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + lat + "," + long + "&radius=1500&type=cafe&key=" + googleKey;
-
-//         $.ajax({
-//             url: queryNearbyCoffeeLookupURL,
-//             method: "GET",
-
-//         }).then(function (response) {
-//             console.log("GoogleCoffeeNearby: " + JSON.stringify(response));
-
-//             var name = "";
-//             var rating = "";
-//             var user_ratings_total = "";
-//             var place_id = ""; //need this to get detailed info including opening hours
-//             var price_level = "";
-//             var vicinity = "";
-
-//             for (var i = 0; i < 5; i++) {
-//                 name = response.results[i].name;
-//                 rating = response.results[i].rating;
-//                 user_ratings_total = response.results[i].user_ratings_total;
-//                 place_id = response.results[i].place_id;
-//                 price_level = response.results[i].price_level;
-//                 vicinity = response.results[i].vicinity;
-//                 cafeResults.push({ name: name, rating: rating, total_ratings: user_ratings_total, id: place_id, price: price_level, vicinity: vicinity });
-
-//                 var newLi = $("<li>");
-//                 newLi.text(name + " | Rating: " + rating + " | No. of ratings: " + user_ratings_total);
-//                 newLi.attr("data-value", name + " " + vicinity)
-//                 newLi.addClass("placeNearby");
-//                 $("#cafeListEl").append(newLi);
-//             }
-//             console.log(cafeResults);
-//         })
-
-//         // this is to get bars nearby
-//         var queryNearbyCoffeeLookupURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + lat + "," + long + "&radius=1500&type=bar&key=" + googleKey;
-
-//         $.ajax({
-//             url: queryNearbyCoffeeLookupURL,
-//             method: "GET",
-
-//         }).then(function (response) {
-//             console.log("GoogleBarNearby: " + JSON.stringify(response));
-
-//             var name = "";
-//             var rating = "";
-//             var user_ratings_total = "";
-//             var place_id = ""; //need this to get detailed info including opening hours
-//             var price_level = "";
-//             var vicinity = "";
-
-//             for (var i = 0; i < 5; i++) {
-//                 name = response.results[i].name;
-//                 rating = response.results[i].rating;
-//                 user_ratings_total = response.results[i].user_ratings_total;
-//                 place_id = response.results[i].place_id;
-//                 price_level = response.results[i].price_level;
-//                 vicinity = response.results[i].vicinity;
-//                 barResults.push({ name: name, rating: rating, total_ratings: user_ratings_total, id: place_id, price: price_level, vicinity: vicinity });
-
-//                 var newLi = $("<li>");
-//                 newLi.text(name + " | Rating: " + rating + " | No. of ratings: " + user_ratings_total);
-//                 newLi.attr("data-value", name + " " + vicinity)
-//                 newLi.addClass("placeNearby");
-//                 $("#barListEl").append(newLi);
-//             }
-//             console.log(barResults);
-//         })
-//     })
-
-    
-// })
 
     companyDisplayEl5.click(function () {
         i = companyDisplayEl5.data("value")
@@ -1046,6 +828,8 @@ $(document).ready(function () {
             console.log("GooglePlacesNearby: " + JSON.stringify(response));
 
             var name = "";
+            var nameLink = ""; //new
+            var nameText = ""; //new
             var rating = "";
             var user_ratings_total = "";
             var place_id = ""; //need this to get detailed info including opening hours
@@ -1054,6 +838,8 @@ $(document).ready(function () {
 
             for (var i = 0; i < 5; i++) {
                 name = response.results[i].name;
+                nameLink = $('<a href="#">'+response.results[i].name+" "+"</a>");
+                nameText = $('<p style="display:inline-block">'+" "+" | Rating: "+rating+ " | No. of ratings: " + user_ratings_total+"</p>")
                 rating = response.results[i].rating;
                 user_ratings_total = response.results[i].user_ratings_total;
                 place_id = response.results[i].place_id;
@@ -1061,10 +847,11 @@ $(document).ready(function () {
                 vicinity = response.results[i].vicinity;
                 restaurantResults.push({ name: name, rating: rating, total_ratings: user_ratings_total, id: place_id, price: price_level, vicinity: vicinity });
 
-                var newLi = $("<li>");
-                newLi.text(name + " | Rating: " + rating + " | No. of ratings: " + user_ratings_total);
-                newLi.attr("data-value", name + " " + vicinity)
-                newLi.addClass("placeNearby");
+                var newLi = $('<li style="list-style-type: none;">'); //new
+                newLi.append(nameLink, nameText); //new
+                // newLi.text(" | Rating: " + rating + " | No. of ratings: " + user_ratings_total);
+                nameLink.attr("data-value", name + " " + vicinity); //new
+                nameLink.addClass("placeNearby"); //new
                 $("#restListEl").append(newLi);
             }
             console.log(restaurantResults);
@@ -1081,6 +868,8 @@ $(document).ready(function () {
             console.log("GoogleCoffeeNearby: " + JSON.stringify(response));
 
             var name = "";
+            var nameLink = ""; //new
+            var nameText = ""; //new
             var rating = "";
             var user_ratings_total = "";
             var place_id = ""; //need this to get detailed info including opening hours
@@ -1089,6 +878,8 @@ $(document).ready(function () {
 
             for (var i = 0; i < 5; i++) {
                 name = response.results[i].name;
+                nameLink = $('<a href="#">'+response.results[i].name+" "+"</a>");
+                nameText = $('<p style="display:inline-block">'+" "+" | Rating: "+rating+ " | No. of ratings: " + user_ratings_total+"</p>")
                 rating = response.results[i].rating;
                 user_ratings_total = response.results[i].user_ratings_total;
                 place_id = response.results[i].place_id;
@@ -1096,10 +887,11 @@ $(document).ready(function () {
                 vicinity = response.results[i].vicinity;
                 cafeResults.push({ name: name, rating: rating, total_ratings: user_ratings_total, id: place_id, price: price_level, vicinity: vicinity });
 
-                var newLi = $("<li>");
-                newLi.text(name + " | Rating: " + rating + " | No. of ratings: " + user_ratings_total);
-                newLi.attr("data-value", name + " " + vicinity)
-                newLi.addClass("placeNearby");
+                var newLi = $('<li style="list-style-type: none;">'); //new
+                newLi.append(nameLink, nameText); //new
+                // newLi.text(" | Rating: " + rating + " | No. of ratings: " + user_ratings_total);
+                nameLink.attr("data-value", name + " " + vicinity); //new
+                nameLink.addClass("placeNearby"); //new
                 $("#cafeListEl").append(newLi);
             }
             console.log(cafeResults);
@@ -1116,6 +908,8 @@ $(document).ready(function () {
             console.log("GoogleBarNearby: " + JSON.stringify(response));
 
             var name = "";
+            var nameLink = ""; //new
+            var nameText = ""; //new
             var rating = "";
             var user_ratings_total = "";
             var place_id = ""; //need this to get detailed info including opening hours
@@ -1124,6 +918,8 @@ $(document).ready(function () {
 
             for (var i = 0; i < 5; i++) {
                 name = response.results[i].name;
+                nameLink = $('<a href="#">'+response.results[i].name+" "+"</a>");
+                nameText = $('<p style="display:inline-block">'+" "+" | Rating: "+rating+ " | No. of ratings: " + user_ratings_total+"</p>")
                 rating = response.results[i].rating;
                 user_ratings_total = response.results[i].user_ratings_total;
                 place_id = response.results[i].place_id;
@@ -1131,16 +927,16 @@ $(document).ready(function () {
                 vicinity = response.results[i].vicinity;
                 barResults.push({ name: name, rating: rating, total_ratings: user_ratings_total, id: place_id, price: price_level, vicinity: vicinity });
 
-                var newLi = $("<li>");
-                newLi.text(name + " | Rating: " + rating + " | No. of ratings: " + user_ratings_total);
-                newLi.attr("data-value", name + " " + vicinity)
-                newLi.addClass("placeNearby");
+                var newLi = $('<li style="list-style-type: none;">'); //new
+                newLi.append(nameLink, nameText); //new
+                // newLi.text(" | Rating: " + rating + " | No. of ratings: " + user_ratings_total);
+                nameLink.attr("data-value", name + " " + vicinity); //new
+                nameLink.addClass("placeNearby"); //new
                 $("#barListEl").append(newLi);
             }
             console.log(barResults);
         })
     })
-
     
 })
    
@@ -1149,12 +945,6 @@ $(document).ready(function () {
     var placeName;
     var placeInfo = [];
 
-    // this is a placeholder for testing purposes (to see what we generate with inputs)
-    // test3();
-
-    // function test3() {
-    //     placeName = "Free House  2700 Bancroft Way, Berkeley";
-    // }
 
     // this is to get additional information of places nearby
 
@@ -1165,12 +955,12 @@ $(document).ready(function () {
     var photos = "";
 
 
-    // placesNearby(); //remove - for testing only
+
     $(document).on("click", ".placeNearby", placesNearby);
 
 
     function placesNearby(event) {
-        if (event.target.matches("li")) {
+        if (event.target.matches("a")) {
             placeName = $(this).attr("data-value");
             console.log($(this).attr("data-value"))
             var test = 123;
