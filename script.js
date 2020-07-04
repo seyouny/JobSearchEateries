@@ -53,6 +53,13 @@ $(document).ready(function () {
 
     submitButton.click(function () {
         var userFullTime = $("#myCheck").is(":checked");
+        for (var i = 0; i < 5; i++) {
+                
+            companyDisplayElAll[i].text("");
+            locationDisplayElAll[i].text("");
+            titleDisplayElAll[i].text("");
+        }
+        companyResults=[];
 
         jobDescription = userJobDescription.val();
         eLocation = userLocation.val();
@@ -93,7 +100,8 @@ $(document).ready(function () {
             var how_to_apply = "";
             var company_logo = "";
 
-            for (var i = 0; i < 5; i++) {
+            for (var i = 0; i < response.length; i++) {
+ 
                 company = response[i].company;
                 location = response[i].location;
                 title = response[i].title;
@@ -104,6 +112,7 @@ $(document).ready(function () {
                 how_to_apply = response[i].how_to_apply;
                 company_logo = response[i].company_logo;
                 companyResults.push({ company: company, location: location, title: title, type: type, url: company_url, created: created_at, description: description, how_to_apply: how_to_apply, logo: company_logo });
+                
                 // console.log(company)
                 //Adding to HTML elements to display on screen
 
@@ -117,10 +126,21 @@ $(document).ready(function () {
             console.log(companyResults[0].title);
 
             // populates html elements with company, location, and title for first 5 results
-            for (var i = 0; i < 5; i++) {
-                companyDisplayElAll[i].text(companyResults[i].company);
-                locationDisplayElAll[i].text(companyResults[i].location);
-                titleDisplayElAll[i].text(companyResults[i].title);
+            if(companyResults.length<5){
+                for (var i = 0; i < companyResults.length; i++) {
+                
+                    companyDisplayElAll[i].text(companyResults[i].company);
+                    locationDisplayElAll[i].text(companyResults[i].location);
+                    titleDisplayElAll[i].text(companyResults[i].title);
+                }
+            }
+            else{
+                for (var i = 0; i < 5; i++) {
+                
+                    companyDisplayElAll[i].text(companyResults[i].company);
+                    locationDisplayElAll[i].text(companyResults[i].location);
+                    titleDisplayElAll[i].text(companyResults[i].title);
+                }
             }
 
         })
@@ -166,12 +186,22 @@ $(document).ready(function () {
     }).then(function (response) {
         console.log("GooglePlaces: " + JSON.stringify(response));
         console.log("GooglePlaces: " + queryCompanyLookupURL);
-        console.log("Latitude: " + response.candidates[0].geometry.location.lat);
-        console.log("Longitude: " + response.candidates[0].geometry.location.lng);
+        console.log("response: "+response.status)
+        // console.log("Latitude: " + response.candidates[0].geometry.location.lat);
+        // console.log("Longitude: " + response.candidates[0].geometry.location.lng);
+        if (response.status==="ZERO_RESULTS"){
+            $("#showAddress").text("Company address cannot be identified - please contact job poster for further details.");
+            return;
+        }
+        else{
+
+        
+
         var lat = response.candidates[0].geometry.location.lat;
         var long = response.candidates[0].geometry.location.lng;
         var compAddress = response.candidates[0].formatted_address;
-        $("#showAddress").text("Showing results for: "+compAddress);
+        $("#showAddress").text("Showing results for places near: "+compAddress);
+        }
 
         // this is to get restaurants nearby
         var queryNearbyLookupURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + lat + "," + long + "&radius=1500&type=restaurant&key=" + googleKey;
@@ -326,12 +356,22 @@ $(document).ready(function () {
     }).then(function (response) {
         console.log("GooglePlaces: " + JSON.stringify(response));
         console.log("GooglePlaces: " + queryCompanyLookupURL);
-        console.log("Latitude: " + response.candidates[0].geometry.location.lat);
-        console.log("Longitude: " + response.candidates[0].geometry.location.lng);
+        console.log("response: "+response.status)
+        // console.log("Latitude: " + response.candidates[0].geometry.location.lat);
+        // console.log("Longitude: " + response.candidates[0].geometry.location.lng);
+        if (response.status==="ZERO_RESULTS"){
+            $("#showAddress").text("Company address cannot be identified - please contact job poster for further details.");
+            return;
+        }
+        else{
+
+        
+
         var lat = response.candidates[0].geometry.location.lat;
         var long = response.candidates[0].geometry.location.lng;
         var compAddress = response.candidates[0].formatted_address;
-        $("#showAddress").text("Showing results for: "+compAddress);
+        $("#showAddress").text("Showing results for places near: "+compAddress);
+        }
 
         // this is to get restaurants nearby
         var queryNearbyLookupURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + lat + "," + long + "&radius=1500&type=restaurant&key=" + googleKey;
@@ -486,12 +526,22 @@ $(document).ready(function () {
     }).then(function (response) {
         console.log("GooglePlaces: " + JSON.stringify(response));
         console.log("GooglePlaces: " + queryCompanyLookupURL);
-        console.log("Latitude: " + response.candidates[0].geometry.location.lat);
-        console.log("Longitude: " + response.candidates[0].geometry.location.lng);
+        console.log("response: "+response.status)
+        // console.log("Latitude: " + response.candidates[0].geometry.location.lat);
+        // console.log("Longitude: " + response.candidates[0].geometry.location.lng);
+        if (response.status==="ZERO_RESULTS"){
+            $("#showAddress").text("Company address cannot be identified - please contact job poster for further details.");
+            return;
+        }
+        else{
+
+        
+
         var lat = response.candidates[0].geometry.location.lat;
         var long = response.candidates[0].geometry.location.lng;
         var compAddress = response.candidates[0].formatted_address;
-        $("#showAddress").text("Showing results for: "+compAddress);
+        $("#showAddress").text("Showing results for places near: "+compAddress);
+        }
 
         // this is to get restaurants nearby
         var queryNearbyLookupURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + lat + "," + long + "&radius=1500&type=restaurant&key=" + googleKey;
@@ -650,12 +700,22 @@ $(document).ready(function () {
     }).then(function (response) {
         console.log("GooglePlaces: " + JSON.stringify(response));
         console.log("GooglePlaces: " + queryCompanyLookupURL);
-        console.log("Latitude: " + response.candidates[0].geometry.location.lat);
-        console.log("Longitude: " + response.candidates[0].geometry.location.lng);
+        console.log("response: "+response.status)
+        // console.log("Latitude: " + response.candidates[0].geometry.location.lat);
+        // console.log("Longitude: " + response.candidates[0].geometry.location.lng);
+        if (response.status==="ZERO_RESULTS"){
+            $("#showAddress").text("Company address cannot be identified - please contact job poster for further details.");
+            return;
+        }
+        else{
+
+        
+
         var lat = response.candidates[0].geometry.location.lat;
         var long = response.candidates[0].geometry.location.lng;
         var compAddress = response.candidates[0].formatted_address;
-        $("#showAddress").text("Showing results for: "+compAddress);
+        $("#showAddress").text("Showing results for places near: "+compAddress);
+        }
 
         // this is to get restaurants nearby
         var queryNearbyLookupURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + lat + "," + long + "&radius=1500&type=restaurant&key=" + googleKey;
@@ -810,12 +870,22 @@ $(document).ready(function () {
     }).then(function (response) {
         console.log("GooglePlaces: " + JSON.stringify(response));
         console.log("GooglePlaces: " + queryCompanyLookupURL);
-        console.log("Latitude: " + response.candidates[0].geometry.location.lat);
-        console.log("Longitude: " + response.candidates[0].geometry.location.lng);
+        console.log("response: "+response.status)
+        // console.log("Latitude: " + response.candidates[0].geometry.location.lat);
+        // console.log("Longitude: " + response.candidates[0].geometry.location.lng);
+        if (response.status==="ZERO_RESULTS"){
+            $("#showAddress").text("Company address cannot be identified - please contact job poster for further details.");
+            return;
+        }
+        else{
+
+        
+
         var lat = response.candidates[0].geometry.location.lat;
         var long = response.candidates[0].geometry.location.lng;
         var compAddress = response.candidates[0].formatted_address;
-        $("#showAddress").text("Showing results for: "+compAddress);
+        $("#showAddress").text("Showing results for places near: "+compAddress);
+        }
 
         // this is to get restaurants nearby
         var queryNearbyLookupURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + lat + "," + long + "&radius=1500&type=restaurant&key=" + googleKey;
