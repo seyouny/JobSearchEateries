@@ -53,7 +53,9 @@ $(document).ready(function () {
     var jobDescription = '';
     var eLocation = '';
     var fullTime = '';
-    submitButton.click(function () {
+    submitButton.click(function (e) {
+        e.preventDefault();
+
         jobDescription = '';
         eLocation = '';
         fullTime = '';
@@ -130,7 +132,7 @@ $(document).ready(function () {
 
         })
 
-    }
+    
 
     // start of Google Places
 
@@ -944,6 +946,7 @@ $(document).ready(function () {
     })
     
 })
+}
    
     // }
 
