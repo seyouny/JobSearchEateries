@@ -66,10 +66,15 @@ $(document).ready(function () {
     //     }
     // }
     var gitJobInput = "";
-
+    var jobDescription = '';
+    var eLocation = '';
+    var fullTime = '';
     submitButton.click(function () {
-        var userFullTime = $("#myCheck").is(":checked");
+        jobDescription = '';
+        eLocation = '';
+        fullTime = '';
 
+        var userFullTime = $("#myCheck").is(":checked");
         jobDescription = userJobDescription.val();
         eLocation = userLocation.val();
         if (userFullTime === true) {
