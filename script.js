@@ -60,6 +60,9 @@ $(document).ready(function () {
             titleDisplayElAll[i].text("");
         }
         companyResults=[];
+        restaurantResults=[];
+        cafeResults=[];
+        barResults=[];
 
         jobDescription = userJobDescription.val();
         eLocation = userLocation.val();
@@ -119,11 +122,11 @@ $(document).ready(function () {
                 // companyDisplayEl1.html("<h1>"+company+"</h1>")
             }
 
-            console.log(companyResults)
+            // console.log(companyResults)
 
-            console.log(companyResults[0].company);
-            console.log(companyResults[0].location);
-            console.log(companyResults[0].title);
+            // console.log(companyResults[0].company);
+            // console.log(companyResults[0].location);
+            // console.log(companyResults[0].title);
 
             // populates html elements with company, location, and title for first 5 results
             if(companyResults.length<5){
@@ -168,16 +171,20 @@ $(document).ready(function () {
         jobDescriptionDisplay.append("<p>" + companyResults[i].description + "</p>");
         gitJobInput = companyResults[i].company+"+"+companyResults[i].location.trim()
         var replaced = gitJobInput.split(' ').join('+');
+        var replaced2 = replaced.split('#').join('+');
 
         console.log(gitJobInput)
-        console.log("replaced: "+replaced)
+        console.log("replaced2: "+replaced2)
         $("#restListEl").html("");
         $("#cafeListEl").html("");
         $("#barListEl").html("");
         $("#showAddress").text("");
+        restaurantResults=[];
+        cafeResults=[];
+        barResults=[];
 
     
-    var queryCompanyLookupURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=" + replaced + "&inputtype=textquery&fields=photos,formatted_address,name,rating,opening_hours,geometry&key=" + googleKey
+    var queryCompanyLookupURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=" + replaced2 + "&inputtype=textquery&fields=photos,formatted_address,name,rating,opening_hours,geometry&key=" + googleKey
 
     $.ajax({
         url: queryCompanyLookupURL,
@@ -338,16 +345,20 @@ $(document).ready(function () {
         jobDescriptionDisplay.append("<p>" + companyResults[i].description + "</p>");
         gitJobInput = companyResults[i].company+"+"+companyResults[i].location.trim()
         var replaced = gitJobInput.split(' ').join('+');
+        var replaced2 = replaced.split('#').join('+');
 
         console.log(gitJobInput)
-        console.log("replaced: "+replaced)
+        console.log("replaced2: "+replaced2)
         $("#restListEl").html("");
         $("#cafeListEl").html("");
         $("#barListEl").html("");
         $("#showAddress").text("");
+        restaurantResults=[];
+        cafeResults=[];
+        barResults=[];
 
     
-    var queryCompanyLookupURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=" + replaced + "&inputtype=textquery&fields=photos,formatted_address,name,rating,opening_hours,geometry&key=" + googleKey
+    var queryCompanyLookupURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=" + replaced2 + "&inputtype=textquery&fields=photos,formatted_address,name,rating,opening_hours,geometry&key=" + googleKey
 
     $.ajax({
         url: queryCompanyLookupURL,
@@ -508,16 +519,20 @@ $(document).ready(function () {
 
         gitJobInput = companyResults[i].company+"+"+companyResults[i].location.trim()
         var replaced = gitJobInput.split(' ').join('+');
+        var replaced2 = replaced.split('#').join('+');
 
         console.log(gitJobInput)
-        console.log("replaced: "+replaced)
+        console.log("replaced2: "+replaced2)
         $("#restListEl").html("");
         $("#cafeListEl").html("");
         $("#barListEl").html("");
         $("#showAddress").text("");
+        restaurantResults=[];
+        cafeResults=[];
+        barResults=[];
 
     
-    var queryCompanyLookupURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=" + replaced + "&inputtype=textquery&fields=photos,formatted_address,name,rating,opening_hours,geometry&key=" + googleKey
+    var queryCompanyLookupURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=" + replaced2 + "&inputtype=textquery&fields=photos,formatted_address,name,rating,opening_hours,geometry&key=" + googleKey
 
     $.ajax({
         url: queryCompanyLookupURL,
@@ -682,16 +697,20 @@ $(document).ready(function () {
         jobDescriptionDisplay.append("<p>" + companyResults[i].description + "</p>");
         gitJobInput = companyResults[i].company+"+"+companyResults[i].location.trim()
         var replaced = gitJobInput.split(' ').join('+');
+        var replaced2 = replaced.split('#').join('+');
 
         console.log(gitJobInput)
-        console.log("replaced: "+replaced)
+        console.log("replaced2: "+replaced2)
         $("#restListEl").html("");
         $("#cafeListEl").html("");
         $("#barListEl").html("");
         $("#showAddress").text("");
+        restaurantResults=[];
+        cafeResults=[];
+        barResults=[];
 
     
-    var queryCompanyLookupURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=" + replaced + "&inputtype=textquery&fields=photos,formatted_address,name,rating,opening_hours,geometry&key=" + googleKey
+    var queryCompanyLookupURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=" + replaced2 + "&inputtype=textquery&fields=photos,formatted_address,name,rating,opening_hours,geometry&key=" + googleKey
 
     $.ajax({
         url: queryCompanyLookupURL,
@@ -852,6 +871,7 @@ $(document).ready(function () {
         jobDescriptionDisplay.append("<p>" + companyResults[i].description + "</p>");
         gitJobInput = companyResults[i].company+"+"+companyResults[i].location.trim()
         var replaced = gitJobInput.split(' ').join('+');
+        var replaced2 = replaced.split('#').join('+');
 
         console.log(gitJobInput)
         console.log("replaced: "+replaced)
@@ -859,9 +879,12 @@ $(document).ready(function () {
         $("#cafeListEl").html("");
         $("#barListEl").html("");
         $("#showAddress").text("");
+        restaurantResults=[];
+        cafeResults=[];
+        barResults=[];
 
     
-    var queryCompanyLookupURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=" + replaced + "&inputtype=textquery&fields=photos,formatted_address,name,rating,opening_hours,geometry&key=" + googleKey
+    var queryCompanyLookupURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=" + replaced2 + "&inputtype=textquery&fields=photos,formatted_address,name,rating,opening_hours,geometry&key=" + googleKey
 
     $.ajax({
         url: queryCompanyLookupURL,
@@ -1033,35 +1056,37 @@ $(document).ready(function () {
         if (event.target.matches("a")) {
             placeName = $(this).attr("data-value");
             console.log($(this).attr("data-value"))
-            var test = 123;
-            console.log(test);
-            console.log("This check: " + placeName);
+            var replaced = placeName.split("#").join('+');
+            var replaced2 = replaced.split(' ').join('+');
 
-            var queryPlaceLookupURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=" + placeName + "&inputtype=textquery&fields=photos,formatted_address,name,rating,opening_hours,geometry&key=" + googleKey;
+            console.log("This check: " + replaced2);
 
+            var queryPlaceLookupURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=" + replaced2 + "&inputtype=textquery&fields=photos,formatted_address,name,rating,opening_hours,geometry&key=" + googleKey;
+            console.log("first check URL placenearby: "+queryPlaceLookupURL)
 
             $.ajax({
                 url: queryPlaceLookupURL,
                 method: "GET",
 
             }).then(function (response) {
+                console.log("check URL placenearby: "+queryPlaceLookupURL)
                 console.log("Place Nearby Check: " + JSON.stringify(response));
                 formatted_address = response.candidates[0].formatted_address;
                 name = response.candidates[0].name;
                 photos = response.candidates[0].photos[0].photo_reference;
                 rating = response.candidates[0].rating;
-                placeInfo.push({ address: formatted_address, name: name, photos: photos, rating: rating })
+                // placeInfo.push({ address: formatted_address, name: name, photos: photos, rating: rating })
 
-                console.log(placeInfo);
+                // console.log(placeInfo);
 
                 $("#jobDescriptionEl").html("");
-                var placeName = $('<h2 class="work-feature-block-header">' + name + '</h2>');
+                var detailName = $('<h2 class="work-feature-block-header">' + name + '</h2>');
                 var placePhoto = $('<img style= "margin: 25px 0">');
                 placePhoto.attr("src", "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=" + photos + "&key=" + googleKey);
                 var placeAddress = $("<p>" + formatted_address + "</p>");
                 var placeRating = $("<p>Rating: " + rating + "</p>");
 
-                $("#jobDescriptionEl").append(placeName, placePhoto, placeAddress, placeRating);
+                $("#jobDescriptionEl").append(detailName, placePhoto, placeAddress, placeRating);
 
 
             }
