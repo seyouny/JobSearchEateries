@@ -1101,7 +1101,7 @@ $(document).ready(function () {
     var cardSection = document.getElementsByClassName("card-section");
     for (let i = 0; i < cardSection.length; i++) {
         cardSection[i].onclick = function () {
-            toastr.success("Great choice!");
+            toastr.success("Information about "+companyResults[i].title);
         }
     };
 
