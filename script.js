@@ -93,6 +93,11 @@ $(document).ready(function () {
             // console.log("Title: " + response[0].title);
 
             // pushes first 5 results into var companyResults
+            if (response.length === 0) {
+                companyDisplayElAll[0].text("No Results - Please Search Again");
+                return;
+            }
+            else {
             var company = "";
             var location = "";
             var title = "";
@@ -122,7 +127,7 @@ $(document).ready(function () {
                 // companyDisplayEl1.html("<h1>"+company+"</h1>")
             }
 
-            // console.log(companyResults)
+        }// console.log(companyResults)
 
             // console.log(companyResults[0].company);
             // console.log(companyResults[0].location);
